@@ -524,6 +524,15 @@
 			 } 
 		   });
 		});
+		setTimeout(function(){
+			if(spacetype=='coworking'){
+				jQuery('li.cospacemenu').addClass('active');
+			}
+			else if(spacetype=='openworking'){
+				jQuery('li.openspacemenu').addClass('active');
+			}
+		
+		},1500);
 	});
 	</script>
   </body>

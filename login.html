@@ -172,8 +172,8 @@ jQuery(document).ready(function(){
 
 document.addEventListener("deviceready", init, false);
 function init() {
-	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
-	document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
+	//document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
+	//document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
 }
 function starttwitterlogin(){
 	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter', '_blank', 'location=yes');

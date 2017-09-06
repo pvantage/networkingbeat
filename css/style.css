@@ -129,6 +129,14 @@ border-top: none;
 border-bottom: 2px solid #fff;
 border-left: none;
 border-radius: inherit;
+float: left;
+display: block;
+}
+.login-page-form .input-group{
+	display: block;
+}
+.login-page-form label{
+	color: #fff;
 }
 
 .login-page-form .form-group input{
@@ -139,6 +147,8 @@ border-left: none;
 border-right: none;
 border-bottom: 2px solid #fff;
 border-radius: inherit;
+display: block;
+width: 85%;
 
 }
 
@@ -210,6 +220,7 @@ background: -webkit-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
 background: -o-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
 background: -moz-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
 background: repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
+z-index: 999;
 }
 .foter-main ul{
 	display: inline-block;
@@ -265,6 +276,16 @@ body .filter-model .inner-part{
     margin: 0 auto;
     text-align: left;
     top: 23%;
+    left: 0;
+}
+.main-nav-bar .active{
+background-color: #ff5b49;
+}
+.main-nav-bar .active a{
+	color: #fff;
+}
+.main-nav-bar .active i{
+	color: #fff;
 }
 #exampleModalLong .main-part .inner-part .modal-body{
 	margin-top: 60px;
@@ -301,6 +322,7 @@ select:-webkit-autofill:focus {
 }
 .inner-nav-bar li{
 	padding: 8px 0px;
+	padding-left: 15px;
 }
 
 .clse-set{

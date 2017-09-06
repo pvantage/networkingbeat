@@ -125,11 +125,11 @@
 
 <div class="foter-main">
     <ul class="footer-parts">
-        <li><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong">
+        <li class="oneset-foot"><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong">
   <img src="images/toogle.png" class="img-fluid" alt="Responsive image">
 </button> </li>
-        <li><input type="text" name="srchtxt" id="srchtxt" style="display:none;" /><a href="javascript:;" class="showsearchtxt"><img src="images/search.png" class="img-fluid" alt="Responsive image"></a></li>
-        <li><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong1"><img src="images/filter.png" class="img-fluid" alt="Responsive image"></button></li>
+        <li class="second-search-for"><input type="text" name="srchtxt" id="srchtxt" style="display:none;" /><a href="javascript:;" class="showsearchtxt"><img src="images/search.png" class="img-fluid" alt="Responsive image"></a></li>
+        <li class="three-set-foot"><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong1"><img src="images/filter.png" class="img-fluid" alt="Responsive image"></button></li>
 
 
     </ul>
@@ -293,6 +293,7 @@
 				showevents(order_rating,order_startdate,order_location,srchtxt);
 		   }
 		});
+		setTimeout(function(){jQuery('li.followingmenu').addClass('active')},1500);
 	});
 	</script>
   </body>

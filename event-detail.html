@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+    
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+
+    
+    
+        
+
+
+
+  </head>
+  <body class="">
+<div class="row-fluid first-set eventdetail"></div>
+
+<!-- footer -->
+<!-- Modal -->
+<div class="menu-model">
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog main-part" role="document">
+    <div class="modal-content inner-part">
+    
+      <div class="modal-body">
+      <button type="button" class="close clse-set" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="main-nav-bar">
+              <ul class="inner-nav-bar">
+  <li><img src="images/GuestUserIcon.png" class="img-fluid" alt="Responsive image"><a href="#">MY PROFILE</a></li>
+<li><!-- <img src="images/event.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-calendar-check-o fa-lg" aria-hidden="true"></i><a href="#">EVENTS</a></li>
+<li><img src="images/openwork.png" class="img-fluid" alt="Responsive image"><a href="#">OPEN WORK SPACES & CAFE’S</a></li>
+ <li><!-- <img src="images/coworking.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-university fa-lg" aria-hidden="true"></i><a href="#">Coworking spaces</a></li>
+  <li><!-- <img src="images/iam.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-heart fa-lg" aria-hidden="true"></i><a href="#">EVENTS I AM FOLLOWING</a></li>
+ <li><!-- <img src="images/rating.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-star fa-lg" aria-hidden="true"></i><a href="#">MY RATINGS</a></li>
+ <li><img src="images/logout.png" class="img-fluid" alt="Responsive image"><a href="#">LOG OUT</a></li>
+
+
+            </ul>
+
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="heart-model">
+<div class="modal fade" id="exampleModalLong4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog main-part" role="document">
+    <div class="modal-content inner-part">
+    
+      <div class="modal-body">
+      <button type="button" class="close clse-set clse" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       <div class="main-point makerating">
+         <h4>Rate this Event</h4>
+         
+         <div>
+         <ul class="popup-accept">
+           <li class="Poor">Poor</a></li>
+           <li class="Outstanding">Outstanding</a></li>
+
+         </ul>
+         </div>
+         <div class="ratings-food">
+         <p>Food</p>
+           <ul class="number-rating">
+		   	<input type="hidden" id="rate_food" value="1">
+             <li class="rating-active clr"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">4</a></li>
+             <li><a href="#">5</a></li>
+
+           </ul>
+         </div>
+
+          <div class="another-set-food">
+         <p>Drink</p>
+           <ul class="number-rating">
+		   	<input type="hidden" id="rate_drink" value="1">
+             <li class="rating-active clr"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">4</a></li>
+             <li><a href="#">5</a></li>
+
+           </ul>
+         </div>
+
+          <div class="another-set-food">
+         <p>Hospitality</p>
+           <ul class="number-rating">
+		   	<input type="hidden" id="rate_hospitality" value="1">
+             <li class="rating-active clr"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">4</a></li>
+             <li><a href="#">5</a></li>
+
+           </ul>
+         </div>
+
+          <div class="another-set-food">
+         <p>Getting There</p>
+           <ul class="number-rating">
+		   	<input type="hidden" id="rate_getting" value="1">
+             <li class="rating-active clr"><a href="#">1</a></li>
+             <li><a href="#">2</a></li>
+             <li><a href="#">3</a></li>
+             <li><a href="#">4</a></li>
+             <li><a href="#">5</a></li>
+
+           </ul>
+         </div>
+
+          <div class="another-set-food">
+         <p>Cloakroom</p>
+           <ul class="number-rating">
+             <label class="radio-inline"><input type="radio" name="cloakroom" value="y">Yes</label>
+<label class="radio-inline"><input type="radio" name="cloakroom" value="n">No</label>
+
+           </ul>
+         </div>
+
+          <div class="another-set-food">
+         <p>Repeat Attendance</p>
+           <ul class="number-rating">
+             <label class="radio-inline"><input type="radio" name="repeat_attendance" value="y">Yes</label>
+<label class="radio-inline"><input type="radio" name="repeat_attendance" value="n">No</label>
+
+
+           </ul>
+         </div>
+
+          
+<div class="last-comment">
+         
+           <ul class="number-rating">
+           <h5>comments</h5>
+			<textarea name="comment" id="comment" rows="2" cols="20"></textarea>
+
+           </ul>
+         </div>
+         <div class="submit-rating"><a href="javascript:;">SUBMIT</a></div>
+
+
+       </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="popup-model">
+<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog main-part" role="document">
+    <div class="modal-content inner-part">
+    
+      <div class="modal-body">
+      <button type="button" class="close clse-set clse" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       <div class="main-point">
+         <h4>Following</h4>
+         <p class="follow-title">You are now following Grilled salmon with veggies Event.</p>
+         <ul class="popup-accept">
+           <li class="first-accept"><a href="javascript:;" class="accept-follow">Accept</a></li>
+           <!--<li class="second-accept"><a href="#">Undo</a></li>-->
+
+         </ul>
+       </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- filter model -->
+
+
+
+<!-- filter model end -->
+  
+    
+
+<div class="foter-main">
+    <ul class="footer-parts">
+        <li><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong">
+  <img src="images/toogle.png" class="img-fluid" alt="Responsive image">
+</button> </li>
+        
+        <li class="backbtn"><a href="events.html"><img src="images/back.png" class="img-fluid" alt="Responsive image"></a></li>
+
+
+    </ul>
+</div>
+
+<!-- footer-close -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="js/jquery-3.2.1.slim.min.js"></script>
+
+    <script src="js/popper.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdRw4y6QbeCa2AVoQcI_j7NMQZPYDrabU" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+	function initMap(address,lat,lng) {
+        var locations = [[address, lat, lng, 1]];
+
+		var map = new google.maps.Map(document.getElementById('gmap'), {
+		  zoom: 15,
+		  center: new google.maps.LatLng(lat, lng),
+		  mapTypeId: 'terrain'
+		});
+	
+		var infowindow = new google.maps.InfoWindow();
+	
+		var marker, i;
+	
+		for (i = 0; i < locations.length; i++) {  
+		  marker = new google.maps.Marker({
+			position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+			//icon: image,
+			map: map
+		  });
+	
+		  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+			return function() {
+			  infowindow.setContent(locations[i][0]);
+			  infowindow.open(map, marker);
+			}
+		  })(marker, i));
+		}
+      }
+	function checkratetime(){
+		var event_id=gup('event_id');
+		var uid=localStorage.getItem('User_ID');
+		var url=siteurl+'/api/events';
+		jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {user_id:uid,event_id:event_id,checkratetime:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
+				
+									
+			 },		
+			 complete: function() {
+					
+			 },
+			 success: function(res) {  
+			 	var html='';
+			   	if(res['responce']=='proceed')
+			   	{
+					setTimeout(checkratetime,5000);
+				}
+				else if(res['responce']=='complete')
+			   	{
+					window.location='';
+				}
+			 },  
+			 error: function(response, d, a){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
+				
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+		   });
+	}
+	jQuery(document).ready(function(){
+		
+		jQuery( document ).on( "mobileinit", function() {
+			jQuery.mobile.allowCrossDomainPages = true;
+		});
+		var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+		if(window.XDomainRequest){contentType = "text/plain";}
+		jQuery.support.cors = true;
+		var uid=localStorage.getItem('User_ID');
+		var url=siteurl+'/api/events';
+		var event_id=gup('event_id');
+		var type=gup('type');
+		if(type=='following'){
+			jQuery('.backbtn a').attr('href','event-following.html');
+		}
+			jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {user_id:uid,event_id:event_id,eventdetail:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
+				/*jQuery('body .bodyoverlay').remove();
+				jQuery('body .preloader').remove();
+				var html='<div class="bodyoverlay"></div><div class="preloader"></div>';
+				jQuery('body').append(html);*/
+									
+			 },		
+			 complete: function() {
+				/*jQuery('body .bodyoverlay').remove();
+				jQuery('body .preloader').remove();	*/	
+			 },
+			 success: function(res) {  
+			 	var html='';
+			   if(res['responce'])
+			   {
+					jQuery(res['responce']).each(function(index){
+						html+='<div class="main-one"><div class="inner-section-event">';
+		  				if(res['responce'][index]['photo']!=''){
+							html+='<img src="'+res['responce'][index]['photo']+'" class="img-fluid img-set-one like-show-set" alt="'+res['responce'][index]['name']+'">';
+						}
+						jQuery('.follow-title').html('You are now following '+res['responce'][index]['name']+'.');
+						if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='No' && res['responce'][index]['canrate']=='Yes'){
+                              html+='<a href="#" class="btn btn-primary toogle-footer popup-a" data-toggle="modal" data-target="#exampleModalLong4"><img src="images/heart-new.png" class="img-fluid like-show-heart" alt="Responsive image"></a>';
+						}
+             
+						
+						if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='No' && res['responce'][index]['canrate']=='Yes'){
+							html+='<div class="inner-two event-detail-two"><p class="first-heading-detail">'+res['responce'][index]['name']+'</p><div class="last-inner-set"><div class="ist-div"><ul class="feedback-row-event"><li class="first-feedback"><img src="images/text-message.png" class="img-fluid" alt="Responsive image"><a href="#gotratings">Feedbacks</a></li><li class="second-leave-feedback"><a href="#" class="btn btn-primary toogle-footer popup-a" data-toggle="modal" data-target="#exampleModalLong4">leave your feedback</a></li></ul></div>';
+						}
+						else
+						{
+							html+='<div class="inner-two event-detail-two"><p class="first-heading-detail">'+res['responce'][index]['name']+'</p><div class="last-inner-set"><div class="ist-div"><ul class="feedback-row-event"><li class="first-feedback"><img src="images/text-message.png" class="img-fluid" alt="Responsive image"><a href="#gotratings">Feedbacks</a></li><li class="second-leave-feedback"><a href="#">leave your feedback</a></li></ul></div>';
+						}
+						if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='No' && res['responce'][index]['feedbacktime']!=''){
+							
+							html+='<div class="last-circles"><span class="time-show-events"><i class="fa fa fa-clock-o fa-lg clock" aria-hidden="true"></i> '+res['responce'][index]['feedbacktime']+'</span></div>';
+						}
+						else if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='Yes'){
+							html+='<div class="last-circles"><ul class="next-view detail-event-eye"><li class="eye-show"><a href="javascript:;"><i class="fa fa-eye  fa-lg" aria-hidden="true"></i></a></li></ul></div>';
+						}
+						if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='No' && res['responce'][index]['canrate']!='Yes')
+						{
+							checkratetime();
+						}
+						html+='</div>';
+						if(res['responce'][index]['follow']!='' && res['responce'][index]['follow']=='No'){
+							html+='<div class="second-last-event-set new-detail-plus"><p><a href="#" class="btn btn-primary toogle-footer popup-a" data-toggle="modal" data-target="#exampleModalLong3" ><img src="images/plus.png" class="img-fluid" alt="Responsive image"></a></p></div>';
+						}
+		
+					  html+='</div></div></div>';
+					  html+='<div class="detail-text">'+res['responce'][index]['detail']+'</div>';
+					});
+				   	
+				}
+				html+='<div class="map-event-detail" id="gmap" style="width:100%; height:150px;"></div>';
+				if(res['ratings'])
+			    {
+			   		html+='<div class="rating-event-detail" id="gotratings"><h4><a herf="javascript:;">Ratings</a></h4>';
+					jQuery(res['ratings']).each(function(index){
+						html+='<div class="rating-start"><ul><li class="first-set-detail">'+res['ratings'][index]['username']+'</li><li class="second-set-detail">'+res['ratings'][index]['cdate']+'</li></ul>';
+          html+='<p class="rating-text">'+res['ratings'][index]['comment']+'</p><div class="rate-set">';
+          html+='<ul><li class="first-set-detail">Food</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				
+				var remainrates=5;
+				if(res['ratings'][index]['food']!='' && res['ratings'][index]['food']!='0'){
+					for(var i=0;i<res['ratings'][index]['food'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['food']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         html+='</ul></li></ul>';
+		 html+='<ul><li class="first-set-detail">Drink</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				var remainrates=5;
+				if(res['ratings'][index]['drink']!='' && res['ratings'][index]['drink']!='0'){
+					for(var i=0;i<res['ratings'][index]['drink'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['drink']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         html+='</ul></li></ul>';
+
+          html+='<ul><li class="first-set-detail">Hospitality</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				var remainrates=5;
+				if(res['ratings'][index]['hospitality']!='' && res['ratings'][index]['hospitality']!='0'){
+					for(var i=0;i<res['ratings'][index]['hospitality'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['hospitality']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         html+='</ul></li></ul>';
+
+          html+='<ul><li class="first-set-detail">Getting There</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				var remainrates=5;
+				if(res['ratings'][index]['getting']!='' && res['ratings'][index]['getting']!='0'){
+					for(var i=0;i<res['ratings'][index]['getting'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['getting']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         	html+='</ul></li></ul>';
+
+
+            html+='<ul><li class="first-set-detail ">Cloakroom </li><li class="second-set-detail">'+res['ratings'][index]['cloakroom']+'</li></ul>';
+			html+='<ul><li class="first-set-detail ">Repeat Attendance</li><li class="second-set-detail">'+res['ratings'][index]['repeat_attendance']+'</li></ul>';
+			if(res['ratings'][index]['user_id']==uid){
+			  html+='<ul><li class="first-set-detail "></li><li class="second-set-detail my-feeback">My feedback</li></ul>';
+			 }
+			  html+='</div></div>';
+		  
+					});
+				   	
+				} 
+				html+='</div>';
+				jQuery('.eventdetail').append(html);
+				if(res['responce'] && res['responce'][0]['latitude']!='' && res['responce'][0]['longitude']!='' && res['responce'][0]['latitude']!=null && res['responce'][0]['longitude']!=null)
+			    {
+					initMap(res['responce'][0]['address'],res['responce'][0]['latitude'],res['responce'][0]['longitude']);
+				}
+			 },  
+			 error: function(response, d, a){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
+				
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+		   });
+		
+	
+		jQuery('a.accept-follow').click(function(){
+			jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {user_id:uid,event_id:event_id,following:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
+				
+									
+			 },		
+			 complete: function() {
+					
+			 },
+			 success: function(res) {  
+			 	var html='';
+			   if(res['responce'])
+			   {
+					//jQuery('.eventdetail').append(html);
+					jQuery('.first-accept').remove();
+					jQuery('.follow-title').html(res['responce']['msg']);
+					setTimeout(function(){
+						window.location='';
+					},1000);
+				}
+			 },  
+			 error: function(response, d, a){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
+				
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+		   });
+		});
+		jQuery('.makerating .number-rating a').click(function(){
+			var prating=jQuery(this).parents('.number-rating');
+			jQuery(prating).find('li').removeClass('rating-active');
+			jQuery(prating).find('li').removeClass('clr');
+			jQuery(this).parent('li').addClass('clr');
+			jQuery(this).parent('li').addClass('rating-active');
+			jQuery(prating).find('input').val(jQuery(this).text());
+			return false;
+		});
+		jQuery('.submit-rating a').click(function(){
+			
+			var food=jQuery('#rate_food').val();
+			var hospitality=jQuery('#rate_hospitality').val();
+			var drink=jQuery('#rate_drink').val();
+			var getting=jQuery('#rate_getting').val();
+			var cloakroom=jQuery('input[name="cloakroom"]:checked').val();
+			var repeat_attendance=jQuery('input[name="repeat_attendance"]:checked').val();
+			var comment=jQuery('#comment').val();
+			
+			jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {user_id:uid, event_id:event_id, food:food, hospitality:hospitality, drink:drink, getting:getting, cloakroom:cloakroom, repeat_attendance:repeat_attendance, comment:comment, commenting:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
+				
+									
+			 },		
+			 complete: function() {
+					
+			 },
+			 success: function(res) {  
+			 	var html='';
+			   if(res['responce'])
+			   {
+					jQuery('.makerating').html(res['responce']['msg']);
+					setTimeout(function(){
+						window.location='';
+					},1000);
+				}
+			 },  
+			 error: function(response, d, a){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
+				
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+		   });
+		});
+	});
+	</script>
+  </body>
+</html>

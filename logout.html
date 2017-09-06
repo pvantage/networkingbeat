@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+
+
+  </head>
+  <body class="indexpagebg">
+  
+    <div class="home-all">  <i class="fa fa-calendar-o fa-5x" aria-hidden="true"></i>
+ <!-- <img src="images/logo.png" class="img-fluid" alt="Responsive image"> -->
+<h1 class="home-text">Find your Events</h1>
+    </div>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+
+    <script src="js/popper.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript">
+		
+		jQuery( document ).on( "mobileinit", function() {
+			jQuery.mobile.allowCrossDomainPages = true;
+		});
+		var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+		if(window.XDomainRequest){contentType = "text/plain";}
+		jQuery.support.cors = true;
+		
+		var uid=localStorage.getItem('User_ID');
+		
+		if(typeof uid!='undefine' && uid!='' && uid!=null){
+			
+			var url=siteurl+'/api/login';
+			
+				 jQuery.ajax({  
+				 type: 'POST',  
+				 url: url,           
+				 dataType: 'json',  
+				 data: {uid:uid,logoutuser:1}, 
+				 beforeSend: function() {
+					
+				 },		
+				 complete: function() {
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .preloader').remove();
+				 }, 
+				 crossDomain: true,  
+				 success: function(res) { 
+					if(res['checkout']['success'])
+					{
+						localStorage.clear();
+						window.location ='login.html';
+					
+						//localStorage.setItem('userInfo', res['success']['userid']);
+						//window.location ='category.html';
+					}else if(res['checkout']['error']){				
+						jQuery('body .bodyoverlay').remove();
+						jQuery('body .popupbox').remove();
+						var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>'+res['checkout']['error']+'</h1><button class="okbox">OK</button></div>';
+						jQuery('body').append(html);
+						
+						jQuery('.okbox').click(function(){
+							jQuery('body .bodyoverlay').remove();
+							jQuery('body .popupbox').remove();
+						});
+						
+					}
+					else
+					{
+						alert('Server error');
+					}
+					return false; 
+				 },  
+				 error: function(response, d, a){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+					var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+					jQuery('body').append(html);
+					
+					jQuery('.okbox').click(function(){
+						jQuery('body .bodyoverlay').remove();
+						jQuery('body .popupbox').remove();
+					});
+					return false; 
+				 }
+						
+			   });
+			 }	
+	</script>
+  </body>
+</html>

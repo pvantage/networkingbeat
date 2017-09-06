@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body class="">
+<div class="row-fluid first-set">
+  <div class="main-one following-page">
+    <input type="hidden" id="totalpages" value="0" />
+    <input type="hidden" id="nextpage" value="1" />
+    <input type="hidden" id="activesearch" value="1" />
+    <h2>My Rating</h2>
+    <div class="accodion-follow">
+      <div id="accordion" class="eventlist" role="tablist" aria-multiselectable="true"> </div>
+    </div>
+  </div>
+</div>
+<!-- plusicon popup -->
+<!-- plusicon-popup -->
+<!-- footer -->
+<!-- Modal -->
+<div class="menu-model">
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog main-part" role="document">
+      <div class="modal-content inner-part">
+        <div class="modal-body">
+          <button type="button" class="close clse-set" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+          <div class="main-nav-bar">
+            <ul class="inner-nav-bar">
+              <li><img src="images/GuestUserIcon.png" class="img-fluid" alt="Responsive image"><a href="#">MY PROFILE</a></li>
+              <li>
+                <!-- <img src="images/event.png" class="img-fluid" alt="Responsive image"> -->
+                <i class="fa fa-calendar-check-o fa-lg" aria-hidden="true"></i><a href="#">EVENTS</a></li>
+              <li><img src="images/openwork.png" class="img-fluid" alt="Responsive image"><a href="#">OPEN WORK SPACES & CAFE’S</a></li>
+              <li>
+                <!-- <img src="images/coworking.png" class="img-fluid" alt="Responsive image"> -->
+                <i class="fa fa-university fa-lg" aria-hidden="true"></i><a href="#">Coworking spaces</a></li>
+              <li>
+                <!-- <img src="images/iam.png" class="img-fluid" alt="Responsive image"> -->
+                <i class="fa fa-heart fa-lg" aria-hidden="true"></i><a href="#">EVENTS I AM FOLLOWING</a></li>
+              <li>
+                <!-- <img src="images/rating.png" class="img-fluid" alt="Responsive image"> -->
+                <i class="fa fa-star fa-lg" aria-hidden="true"></i><a href="#">MY RATINGS</a></li>
+              <li><img src="images/logout.png" class="img-fluid" alt="Responsive image"><a href="#">LOG OUT</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="filter-model">
+  <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+    <div class="modal-dialog main-part" role="document">
+      <div class="modal-content inner-part">
+        <div class="modal-body">
+          <button type="button" class="close clse-set" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+          <div class="event-filter">
+            <h2>filters</h2>
+            <div class="ratings-filter">
+              <h4>ratings</h4>
+              <div class="radio red">
+                <label>
+                <input type="radio" value="DESC" name="order_rating" checked="checked">
+                high to low</label>
+              </div>
+              <div class="radio black">
+                <label>
+                <input type="radio" value="ASC" name="order_rating">
+                low to high</label>
+              </div>
+            </div>
+            <div class="ratings-filter">
+              <h4>DATE</h4>
+              <div class="radio red">
+                <label>
+                <input type="radio" value="DESC" name="order_startdate" checked="checked">
+                New to Old</label>
+              </div>
+              <div class="radio black">
+                <label>
+                <input type="radio" value="ASC" name="order_startdate">
+                Old to New</label>
+              </div>
+            </div>
+            <div class="ratings-filter">
+              <h4>LOCATION</h4>
+              <div class="radio red">
+                <label>
+                <input type="radio" value="ASC" name="order_location" checked="checked">
+                Near to Far</label>
+              </div>
+              <div class="radio black">
+                <label>
+                <input type="radio" value="DESC" name="order_location">
+                Far to Near</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary filter-button">Filter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- filter model end -->
+<div class="foter-main">
+  <ul class="footer-parts">
+    <li>
+      <button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong"> <img src="images/toogle.png" class="img-fluid" alt="Responsive image"> </button>
+    </li>
+    <li class="srchfield">
+      <input type="text" name="srchtxt" id="srchtxt" style="display:none;" />
+      <a href="javascript:;" class="showsearchtxt"><img src="images/search.png" class="img-fluid" alt="Responsive image"></a></li>
+    <!--<li><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong1"><img src="images/filter.png" class="img-fluid" alt="Responsive image"></button></li>-->
+  </ul>
+</div>
+<!-- footer-close -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript">
+	function showevents(order_rating,order_startdate,order_location,srchtxt)
+	{
+		var uid=localStorage.getItem('User_ID');
+		var url=siteurl+'/api/events';
+		var pageid=jQuery('#nextpage').val();
+		var activesearch=jQuery('#activesearch').val();
+		if(activesearch=='1'){
+			jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {order_rating:order_rating,order_startdate:order_startdate,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid,myratingevents:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
+				
+				jQuery('#activesearch').val(0);						
+			 },		
+			 complete: function() {
+				
+				jQuery('#activesearch').val(1);			
+			 },
+			 success: function(res) { 
+			 var html='';
+			   if(res['ratings'])
+			    {
+					
+					
+					jQuery(res['ratings']).each(function(index){
+						html+='<div class="card"><div class="card-header" role="tab" id="headingFour"><h5 class="mb-0"><ul class="one-acc"><li class="first-close"><div class="head-rat">'+res['ratings'][index]['name']+'</div><div class="last-circles"><div><ul class="rating-ul">';
+						var remainrates=5;
+						if(res['ratings'][index]['ratings']!='' && res['ratings'][index]['ratings']!='0'){
+							for(var i=0;i<res['ratings'][index]['ratings'];i++){
+								html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+							}
+							remainrates=5-parseInt(res['ratings'][index]['ratings']);
+						}
+						for(var i=0;i<remainrates;i++){
+							html+='<a href="javascript:;"><li></li></a>';
+						}
+                        html+='</ul></div></div></li>';
+      html+='<li class="second-open"><a data-toggle="collapse" data-parent="#accordion" href="#collapseFour'+index+'" aria-expanded="true" aria-controls="collapseOne"><img src="images/down.png" class="img-fluid" alt="Responsive image"></a></li></ul></h5></div>';
+
+    html+='<div id="collapseFour'+index+'" class="collapse" role="tabpanel" aria-labelledby="headingFour"><div class="card-block">';
+      
+          html+='<div class="rating-start new-rating"><ul><li class="second-set-detail">'+res['ratings'][index]['cdate']+'</li></ul>';
+          html+='<p class="rating-text">'+res['ratings'][index]['comment']+'</p><div class="rate-set">';
+          html+='<ul><li class="first-set-detail">Food</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				
+				var remainrates=5;
+				if(res['ratings'][index]['food']!='' && res['ratings'][index]['food']!='0'){
+					for(var i=0;i<res['ratings'][index]['food'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['food']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         html+='</ul></li></ul>';
+		 html+='<ul><li class="first-set-detail">Drink</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				var remainrates=5;
+				if(res['ratings'][index]['drink']!='' && res['ratings'][index]['drink']!='0'){
+					for(var i=0;i<res['ratings'][index]['drink'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['drink']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         html+='</ul></li></ul>';
+
+          html+='<ul><li class="first-set-detail">Hospitality</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				var remainrates=5;
+				if(res['ratings'][index]['hospitality']!='' && res['ratings'][index]['hospitality']!='0'){
+					for(var i=0;i<res['ratings'][index]['hospitality'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['hospitality']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         html+='</ul></li></ul>';
+
+          html+='<ul><li class="first-set-detail">Getting There</li><li class="second-set-detail last-circles"><ul class="rating-ul">';
+				var remainrates=5;
+				if(res['ratings'][index]['getting']!='' && res['ratings'][index]['getting']!='0'){
+					for(var i=0;i<res['ratings'][index]['getting'];i++){
+						html+='<a href="javascript:;"><li class="rating-active"></li></a>';
+					}
+					remainrates=5-parseInt(res['ratings'][index]['getting']);
+				}
+				for(var i=0;i<remainrates;i++){
+					html+='<a href="javascript:;"><li></li></a>';
+				}
+         	html+='</ul></li></ul>';
+
+
+            html+='<ul><li class="first-set-detail ">Cloakroom </li><li class="second-set-detail">'+res['ratings'][index]['cloakroom']+'</li></ul>';
+			html+='<ul><li class="first-set-detail ">Repeat Attendance</li><li class="second-set-detail">'+res['ratings'][index]['repeat_attendance']+'</li></ul>';
+			
+			  html+='</div></div></div></div></div></div>';
+						
+				   });
+				   if(pageid==1){
+				   		pageid=parseInt(pageid)+1;
+				   		jQuery('#nextpage').val(pageid);
+						jQuery('#totalpages').val(res['totalpage']);
+				   }
+				   jQuery('.eventlist').append(html);
+				}
+				if(jQuery.trim(html)==''){
+				html='<p>You are not following any events.</p>';
+				if(pageid==1){jQuery('.eventlist').html(html);}
+				}
+				else{
+				   jQuery('.eventlist').append(html);
+				 }
+			 },  
+			 error: function(response, d, a){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
+				
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+		   });
+		}
+	}
+	jQuery(document).ready(function(){
+		
+		jQuery( document ).on( "mobileinit", function() {
+			jQuery.mobile.allowCrossDomainPages = true;
+		});
+		var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+		if(window.XDomainRequest){contentType = "text/plain";}
+		jQuery.support.cors = true;
+		jQuery('a.showsearchtxt').click(function(){
+			if(!jQuery(this).hasClass('active'))
+			{
+				jQuery('#srchtxt').show();
+				jQuery(this).addClass('active');
+				jQuery('.footer-parts').addClass('showingsrchfield');
+				jQuery('body').addClass('srchfieldbody');
+			}
+			else
+			{
+				jQuery('.eventlist .card').remove();
+				jQuery('#totalpages').val(0);
+				jQuery('#nextpage').val(1);
+				jQuery('#activesearch').val(1);
+				var order_rating=jQuery('input[name="order_rating"]').val();
+				var order_startdate=jQuery('input[name="order_startdate"]').val();
+				var order_location=jQuery('input[name="order_location"]').val();
+				var srchtxt=jQuery('#srchtxt').val();
+				showevents(order_rating,order_startdate,order_location,srchtxt);
+			}
+		});
+		jQuery('button.filter-button').click(function(){
+			jQuery('.eventlist .card').remove();
+			jQuery('#totalpages').val(0);
+			jQuery('#nextpage').val(1);
+			jQuery('#activesearch').val(1);
+			var order_rating=jQuery('input[name="order_rating"]').val();
+			var order_startdate=jQuery('input[name="order_startdate"]').val();
+			var order_location=jQuery('input[name="order_location"]').val();
+			var srchtxt=jQuery('#srchtxt').val();
+			showevents(order_rating,order_startdate,order_location,srchtxt);
+			jQuery('#exampleModalLong1 .modal-body button.close').trigger('click');
+		});
+		var order_rating=jQuery('input[name="order_rating"]').val();
+		var order_startdate=jQuery('input[name="order_startdate"]').val();
+		var order_location=jQuery('input[name="order_location"]').val();
+		var srchtxt=jQuery('#srchtxt').val();
+		showevents(order_rating,order_startdate,order_location,srchtxt);
+		
+		$(window).scroll(function() {
+		   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+			   var order_rating=jQuery('input[name="order_rating"]').val();
+				var order_startdate=jQuery('input[name="order_startdate"]').val();
+				var order_location=jQuery('input[name="order_location"]').val();
+				var srchtxt=jQuery('#srchtxt').val();
+				showevents(order_rating,order_startdate,order_location,srchtxt);
+		   }
+		});
+	});
+	</script>
+</body>
+</html>

@@ -32,8 +32,8 @@
 	<plugin name="com.phonegap.plugins.facebookconnect" spec="0.9.0" source="pgb">
 		<param name="APP_ID" value="115183872499561" />
 		<param name="APP_NAME" value="findevents" />
-	</plugin>-->
-	<gap:plugin name="cordova-plugin-facebookconnect-orlando" source="npm" />
+	</plugin>
+	<gap:plugin name="cordova-plugin-facebookconnect-orlando" source="npm" />-->
 	
 	<!--<plugin name="phonegap-plugin-push"  spec="~2.0.0" />
 	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />-->
@@ -41,19 +41,19 @@
 	<plugin name="cordova-plugin-splashscreen" />
 	
 	<icon src="icon.png" />
-	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="ldpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="mdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="hdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="xhdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="xxhdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="ldpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="mdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="hdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="xhdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="xxhdpi" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="winphone" />
-	<icon src="res/icon/ios/Icon-180.png" gap:platform="winphone" gap:role="background" />
+	<icon gap:platform="webos" src="icon-60@3x.png" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="xxhdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="ldpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="mdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="hdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="xhdpi" />
+	<icon src="icon-60@3x.png" gap:platform="android" gap:density="xxhdpi" />
+	<icon src="icon-60@3x.png" gap:platform="winphone" />
+	<icon src="icon-60@3x.png" gap:platform="winphone" gap:role="background" />
 	
 	<!--Iphone icons-->
 	<splash src="splash.png" />

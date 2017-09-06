@@ -177,7 +177,7 @@ function init() {
 }
 function starttwitterlogin(){
 	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter', '_blank', 'location=yes');
-	var myCallback = function(event) { alert(event.url); }
+	ref.addEventListener('loadstart', function(event) { alert(event.url); });
 }
 function startfblogin()
 {

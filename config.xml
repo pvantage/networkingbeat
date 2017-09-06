@@ -28,11 +28,11 @@
 	</platform>
 	<plugin name="phonegap-plugin-push" spec="~1.9.0">
 		<variable name="SENDER_ID" value="1:315537388956:android:a1fc2536a0952d78" />
-	</plugin>-->
+	</plugin>
 	<plugin name="com.phonegap.plugins.facebookconnect" spec="0.9.0" source="pgb">
 		<param name="APP_ID" value="115183872499561" />
 		<param name="APP_NAME" value="findevents" />
-	</plugin>
+	</plugin>-->
 	
 	<!--<plugin name="phonegap-plugin-push"  spec="~2.0.0" />-->
 	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />

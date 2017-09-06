@@ -32,8 +32,8 @@
 	<plugin name="com.phonegap.plugins.facebookconnect" spec="0.9.0" source="pgb">
 		<param name="APP_ID" value="115183872499561" />
 		<param name="APP_NAME" value="findevents" />
-	</plugin>-->
-	<gap:plugin source="https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git" />
+	</plugin>
+	<gap:plugin source="https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git" />-->
 	
 	<!--<plugin name="phonegap-plugin-push"  spec="~2.0.0" />
 	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />-->

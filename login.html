@@ -176,13 +176,8 @@ function init() {
 	document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
 }
 function starttwitterlogin(){
-	const LoginWithTwitter = require('login-with-twitter')
- 
-	const tw = LoginWithTwitter({
-	  consumerKey: 'HjBrbOsmyP65q95851kakD9Lk',
-	  consumerSecret: 'feYbtQI6TE5QOeP1W751F9GE9FTNLgyvXeiE9X4Dn3cGPtWf8K',
-	  callbackUrl: 'login.html'
-	})
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter', '_blank', 'location=yes');
+	var myCallback = function(event) { alert(event.url); }
 }
 function startfblogin()
 {

@@ -33,9 +33,10 @@
 		<param name="APP_ID" value="115183872499561" />
 		<param name="APP_NAME" value="findevents" />
 	</plugin>-->
+	<gap:plugin name="cordova-plugin-facebookconnect-orlando" source="npm" />
 	
-	<!--<plugin name="phonegap-plugin-push"  spec="~2.0.0" />-->
-	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
+	<!--<plugin name="phonegap-plugin-push"  spec="~2.0.0" />
+	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />-->
 	<plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />	
 	<plugin name="cordova-plugin-splashscreen" />
 	

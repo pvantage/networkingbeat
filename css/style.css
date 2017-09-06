@@ -22,10 +22,22 @@
     width: 100%;
 
 }
+.foter-main .showingsrchfield .second-search-for input{
+	width: 85%;
+	border-radius: 5px;
+	border:none;
+}
+.foter-main .showingsrchfield .second-search-for img{
+	margin-left: 5px;
+}
 .foter-main .showingsrchfield li{
  margin-top: 34px;
     padding-bottom: 5px;
     padding-top: 7px;
+}
+
+.srchfieldbody .first-set {
+  padding-bottom: 87px;
 }
 
 

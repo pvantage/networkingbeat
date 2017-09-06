@@ -70,7 +70,10 @@
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/validate.js"></script>
+	<script src="js/ng-cordova.js"></script>
+<script src="cordova.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/sha1.js"></script>
 <script type="text/javascript">
 
 jQuery(document).ready(function(){
@@ -229,6 +232,12 @@ var fbLoginSuccess = function (userData) {
 		});
 	 });
 }
+$scope.twitterLogin = function () {
+$cordovaOauth.twitter("HjBrbOsmyP65q95851kakD9Lk", "feYbtQI6TE5QOeP1W751F9GE9FTNLgyvXeiE9X4Dn3cGPtWf8K").then(function (result) {
+    alert(JSON.stringify(result));
+}, function (error) {
+    alert(JSON.stringify(error));
+});
 </script>
   </body>
 </html>

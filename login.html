@@ -19,7 +19,7 @@
     <div class="social-login">
       <ul class="ul-login">
         <li><a href="javascript:;" id="startfblogin"><!-- <img src="images/fb-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-        <li><a href="#"><!-- <img src="images/tw-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+        <li><a href="javascript:;" id="starttwitterlogin"><!-- <img src="images/tw-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
 </a></li>
         <li><a href="#"><!-- <img src="images/linked-in-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
 </a></li>
@@ -70,10 +70,10 @@
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/validate.js"></script>
-	<script src="js/ng-cordova.js"></script>
+	<!--<script src="js/ng-cordova.js"></script>-->
 <script src="cordova.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
-	<script type="text/javascript" src="js/sha1.js"></script>
+	<!--<script type="text/javascript" src="js/sha1.js"></script>-->
 <script type="text/javascript">
 
 jQuery(document).ready(function(){
@@ -173,6 +173,16 @@ jQuery(document).ready(function(){
 document.addEventListener("deviceready", init, false);
 function init() {
 	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
+	document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
+}
+function starttwitterlogin(){
+	const LoginWithTwitter = require('login-with-twitter')
+ 
+	const tw = LoginWithTwitter({
+	  consumerKey: 'HjBrbOsmyP65q95851kakD9Lk',
+	  consumerSecret: 'feYbtQI6TE5QOeP1W751F9GE9FTNLgyvXeiE9X4Dn3cGPtWf8K',
+	  callbackUrl: 'login.html'
+	})
 }
 function startfblogin()
 {
@@ -232,12 +242,12 @@ var fbLoginSuccess = function (userData) {
 		});
 	 });
 }
-$scope.twitterLogin = function () {
+/*$scope.twitterLogin = function () {
 $cordovaOauth.twitter("HjBrbOsmyP65q95851kakD9Lk", "feYbtQI6TE5QOeP1W751F9GE9FTNLgyvXeiE9X4Dn3cGPtWf8K").then(function (result) {
     alert(JSON.stringify(result));
 }, function (error) {
     alert(JSON.stringify(error));
-});
+});*/
 </script>
   </body>
 </html>

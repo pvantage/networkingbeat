@@ -142,6 +142,7 @@
 		var url=siteurl+'/api/events';
 		var pageid=jQuery('#nextpage').val();
 		var activesearch=jQuery('#activesearch').val();
+		var totalpages=jQuery('#totalpages').val();
 		if(activesearch=='1'){
 			jQuery.ajax({ 
 			 type: 'POST',  
@@ -156,7 +157,7 @@
 			 },		
 			 complete: function() {
 				
-				jQuery('#activesearch').val(1);			
+				//jQuery('#activesearch').val(1);			
 			 },
 			 success: function(res) { 
 			 var html='';
@@ -242,15 +243,26 @@
 			  html+='</div></div></div></div></div></div>';
 						
 				   });
+				   
+				   	jQuery('#activesearch').val(1);
 				   if(pageid==1){
-				   		pageid=parseInt(pageid)+1;
-				   		jQuery('#nextpage').val(pageid);
 						jQuery('#totalpages').val(res['totalpage']);
+						if(res['totalpage']==1){jQuery('#activesearch').val(0);}
 				   }
+				  else if(parseInt(totalpages)>=pageid){
+						if(totalpages==1){jQuery('#activesearch').val(0);}
+				   }
+				   else
+				   {
+				   		jQuery('#activesearch').val(0);
+				   }
+				   
+				   pageid=parseInt(pageid)+1;
+				   jQuery('#nextpage').val(pageid);
 				   jQuery('.eventlist').append(html);
 				}
 				if(jQuery.trim(html)==''){
-				html='<p>You are not following any events.</p>';
+				html='<p class="noitemfound">You are not following any events.</p>';
 				if(pageid==1){jQuery('.eventlist').html(html);}
 				}
 				else{

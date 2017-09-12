@@ -7,10 +7,25 @@
     background-size: cover;
     background-attachment: fixed;
 }
+body .errorbox{
+	top:30%;
+}
+body .errorbox .okbox{
+	margin-top: 5px;
+}
+body .inner-two p{
+	color: #4d606f;
+}
+.inner-two a p{
+	padding-bottom: 5px;
 
+}
+body .last-inner-set p a b{
+	color: #000000;
 
+}
 .foter-main .showingsrchfield .second-search-for{
-	 display: block !important;
+	 display: block !important;;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
@@ -26,6 +41,8 @@
 	width: 85%;
 	border-radius: 5px;
 	border:none;
+	font-size: 13px;
+	padding: 4px 8px;
 }
 .foter-main .showingsrchfield .second-search-for img{
 	margin-left: 5px;
@@ -75,6 +92,13 @@ opacity: 0.7;
     
     height: auto;
 }
+.ul-login li:first-child{
+	 padding-left: 9px;
+    padding-right: 9px;
+}
+body .login-page-form .error{
+	color: #ff0000 !important;
+}
 .ul-login li{
 	display: inline-block;
 	display: inline-block;
@@ -103,6 +127,9 @@ font-size: 14px;
 	padding-left: 5px;
     padding-right: 21px;
     color: #4a3949;
+}
+.detail-text img{
+	width: 100%;
 }
 .login-text{
 font-family: 'TimesNewRomanPS-BoldItalicMT';
@@ -186,13 +213,16 @@ letter-spacing: 2px;
 color: #fff;
 }
 .login-page-form .first-log-register{
-padding: 10px 50px;
+padding: 10px 30px;
 	background-color: #f57365;
 color: #fff;
 }
 .second-log{
 	background-color: #fff;
 color: #000;
+}
+.detail-text{
+	padding: 5px 10px;
 }
 .forget-pass {
 	text-align: center;
@@ -256,27 +286,23 @@ body .toogle-footer:focus{
 	box-shadow: none;
 }
 body .menu-model .main-part{
-	    max-width: 100%;
-    margin: 0;
+	  
+
     border-radius: inherit;
-    height: 100%;
+   max-width: 100%;
     margin: 0px;
-    bottom: 11%;
+ 
 }
 body .menu-model .inner-part{
 	opacity: 0.9;
-	height: 100%;
+/*	height: 100%;*/
    
 }
 body .filter-model .inner-part{
 	opacity: 0.9;
 }
-.main-nav-bar{    position: absolute;
-    width: 100%;
-    margin: 0 auto;
-    text-align: left;
-    top: 23%;
-    left: 0;
+.main-nav-bar{   
+width: 100%; 
 }
 .main-nav-bar .active{
 background-color: #ff5b49;
@@ -289,10 +315,20 @@ background-color: #ff5b49;
 }
 #exampleModalLong .main-part .inner-part .modal-body{
 	margin-top: 60px;
+	display: flex;
+	align-items: center;
+	padding: 0px;
+
+}
+.close.clse-set {
+    position: absolute;
+    right: 10px;
+    top: -10%;
 }
 .inner-nav-bar{
 	padding-left: 0px;
 	list-style-type: none;
+	padding-bottom: 40px;
 }
 .inner-nav-bar li a{
 	font-size: 16px;
@@ -348,17 +384,27 @@ body .co-space-inner{
 	width: 100%;
 }
 body .event-detail-two{
-	background-color: #594852;
+	background-color: rgb(89, 72, 82, 0.9);
 }
 body .event-detail-two p{
 	color: #fff;
 }
 body .event-detail-two .first-heading-detail{
-	font-size: 18px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
 }
 .event-detail-two .last-inner-set{
 	width: 100%;
 	float: none;
+}
+.detail-text p a{
+	color: #4d606f;
+
+}
+.detail-text p span{
+	color: #4d606f;
+	
 }
 .detail-text p{
 	color: #4d606f;
@@ -395,8 +441,9 @@ body .event-detail-two .first-heading-detail{
 .rating-start ul .first-set-detail{
 	    display: inline-block;
     float: left;
-       font-family: 'Lato', sans-serif;
-       font-size: 19px;
+    font-family: "Lato",sans-serif;
+    font-size: 16px;
+    width: 60%;
 }
 .rating-start ul .second-set-detail{
 	    display: inline-block;
@@ -461,6 +508,9 @@ body .my-feeback{
 .filter-model .modal-footer{
 	display: inline-block;
 	text-align: center;
+}
+.filter-model label input{
+	margin-right: 10px;
 }
 .red{
 	color: #e94b36;
@@ -699,10 +749,11 @@ body .accodion-follow .collapse{
 
 /*font-awesome start*/
 body .locatio-map{
-	float: left;
-	margin-right: 6px;
-	color: #ff5b49;
-	font-size: 25px;
+	    color: #ff5b49;
+    float: left;
+    font-size: 25px;
+    margin-right: 6px;
+    width: 5%;
 }
 .heart-like a{
 	float: left;
@@ -915,6 +966,10 @@ line-height: 10px;
     
 }
 @media only screen and (max-width: 480px) {
+	.img-set-one{
+	width: 100%;
+	min-height: 250px;
+}
 	body .rating-active{
 		 /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(#e94b36, #fff) !important; /* For Safari 5.1 to 6.0 */
@@ -931,6 +986,7 @@ line-height: 10px;
 		margin: 0;
 		line-height: 20px;
 		padding: 5px;
+		border-top: 2px solid #ccc;
 	}
 
 	.inner-section-event{
@@ -943,7 +999,7 @@ line-height: 10px;
         bottom: 0;
         background-color: rgba(255,255,255,0.9);
         width: 100%;
-        padding: 5px 5px 5px 5px;
+        padding: 5px 10px 5px 10px;
 	}
 	.inner-two p{
 		font-size: 12px;
@@ -951,7 +1007,7 @@ line-height: 10px;
 		margin: 0;
 		}
 		.event-detail-two p{
-		    padding: 5px 0px;
+		    padding:0px 0px;
 
 		}
 
@@ -970,6 +1026,8 @@ line-height: 10px;
 		margin: 0;
 		vertical-align: middle;
 		/*margin-top: 3.3px;*/
+		width: 92%;
+		float: right;
 	}
 
 	.second-last-event-set{
@@ -1005,6 +1063,7 @@ line-height: 10px;
 		background: #fff;
 		border-radius: 20px;
 		border: 2px solid #e94b36;
+		margin: 0px 1px;
 	}
 	.next-view{
 		display: inline-block;
@@ -1017,6 +1076,9 @@ line-height: 10px;
 		padding: 0;
 		margin-bottom: 0;
 		padding-left: 10px;
+	}
+	.detail-event-eye .eye-show{
+		padding-left: 0px;
 	}
 	.ist-div{
 		width: 100%;
@@ -1093,7 +1155,7 @@ line-height: 10px;
 
 }
 .event-detail-two .last-circles {
-	padding-bottom: 5px;
+	padding-bottom: 0px;
 }
 }
 /******************************************sir css********************************************************************/

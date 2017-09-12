@@ -123,6 +123,7 @@
 		var uid=localStorage.getItem('User_ID');
 		var url=siteurl+'/api/spaces';
 		//alert('test');
+		var totalpages=jQuery('#totalpages').val();
 		var pageid=jQuery('#nextpage').val();
 		var activesearch=jQuery('#activesearch').val();
 		if(activesearch=='1'){
@@ -143,25 +144,26 @@
 			 complete: function() {
 				/*jQuery('body .bodyoverlay').remove();
 				jQuery('body .preloader').remove();	*/	
-				jQuery('#activesearch').val(1);			
+				//jQuery('#activesearch').val(1);			
 			 },
 			 success: function(res) {  
+			 	var html='';
 			   if(res['responce'])
 			   {
-					var html='';
+					
 					
 					jQuery(res['responce']).each(function(index){
-						html+='<div class="main-one"><p class="main-heading-event">'+res['responce'][index]['name']+'</p><div class="inner-section-event">';
+						html+='<div class="main-one"><a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><p class="main-heading-event">'+res['responce'][index]['name']+'</p></a><div class="inner-section-event">';
 						if(res['responce'][index]['photo']!=''){
-							html+='<img src="'+res['responce'][index]['photo']+'" class="img-fluid img-set-one" alt="'+res['responce'][index]['name']+'">';
+							html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><img src="'+res['responce'][index]['photo']+'" class="img-fluid img-set-one" alt="'+res['responce'][index]['name']+'"></a>';
 						}
 					html+='<div class="inner-two">';
 					if(res['responce'][index]['detail']!='' && res['responce'][index]['detail']!=null){
-					  html+='<p>'+res['responce'][index]['detail']+'</p>';
+					  html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><p>'+res['responce'][index]['detail']+'</p></a>';
 					 }
 					  html+='<div class="last-inner-set"><div class="ist-div">';
 					  if(res['responce'][index]['address']!='' && res['responce'][index]['address']!=null){
-					  html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'#gmap"><i class="fa fa-map-marker fa-lg locatio-map" aria-hidden="true"></i></a><p><b>'+res['responce'][index]['address']+'</b></p>';
+					  html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'#gmap"><i class="fa fa-map-marker fa-lg locatio-map" aria-hidden="true"></i></a><p><a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><b>'+res['responce'][index]['address']+'</b></a></p>';
 					  }
                       html+='</div>';
 					  
@@ -185,13 +187,30 @@
                   		html+='</div></div></div>';
 						
 				   });
+				  jQuery('#activesearch').val(1);
 				   if(pageid==1){
-				   		pageid=parseInt(pageid)+1;
-				   		jQuery('#nextpage').val(pageid);
 						jQuery('#totalpages').val(res['totalpage']);
+						if(res['totalpage']==1){jQuery('#activesearch').val(0);}
 				   }
-				   jQuery('.eventlist').append(html);
+				  else if(parseInt(totalpages)>=pageid){
+						if(totalpages==1){jQuery('#activesearch').val(0);}
+				   }
+				   else
+				   {
+				   		jQuery('#activesearch').val(0);
+				   }
+				    
+				   pageid=parseInt(pageid)+1;
+				   	jQuery('#nextpage').val(pageid);
+				   
 				}
+				if(jQuery.trim(html)==''){
+				html='<p class="noitemfound">There is no space found.</p>';
+				if(pageid==1){jQuery('.eventlist').html(html);}
+				}
+				else{
+				   jQuery('.eventlist').append(html);
+				 }
 			 },  
 			 error: function(response, d, a){
 				jQuery('body .bodyoverlay').remove();

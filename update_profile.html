@@ -16,16 +16,7 @@
 <h1 class="login-text">Find your Events</h1>
     </div>
 
-    <div class="social-login">
-    <ul class="ul-login">
-        <li><a href="#"><!-- <img src="images/fb-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-        <li><a href="#"><!-- <img src="images/tw-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-</a></li>
-        <li><a href="#"><!-- <img src="images/linked-in-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
-</a></li>
-        <li>Sign In Using Social Network</li>
-      </ul>
-    </div>
+    
 
     <div style="margin-bottom:80px;">
       <form class="login-page-form" id="loginuser" action="" method="post">
@@ -138,7 +129,7 @@ jQuery(document).ready(function(){
 		jQuery('#email').val(email);
 	}
 	var phone=localStorage.getItem('User_phone');
-	if(typeof phone!='undefine' && phone!='' && phone!=null){
+	if(typeof phone!='undefine' && phone!='' && phone!=null && phone!='null'){
 		jQuery('#phone').val(phone);
 	}
 	jQuery('#loginuser').submit( function(){	

@@ -120,9 +120,12 @@
 <script type="text/javascript">
 	function showevents(order_rating,order_location,srchtxt)
 	{
+		var latitude=localStorage.getItem('User_Lat');
+		if(typeof latitude=='undefined' || latitude==null){latitude='';}
+		var longitude=localStorage.getItem('User_Long');
+		if(typeof longitude=='undefined' || longitude==null){longitude='';}
 		var uid=localStorage.getItem('User_ID');
 		var url=siteurl+'/api/spaces';
-		//alert('test');
 		var totalpages=jQuery('#totalpages').val();
 		var pageid=jQuery('#nextpage').val();
 		var activesearch=jQuery('#activesearch').val();
@@ -132,7 +135,7 @@
 			 url: url,  
 			 //contentType: contentType,  
 			 dataType: 'json',  
-			 data: {order_rating:order_rating,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid,spacetype:'coworking'},  
+			 data: {order_rating:order_rating,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid,spacetype:'coworking', latitude:latitude, longitude:longitude},  
 			 crossDomain: true,  
 			 beforeSend: function() {
 				/*jQuery('body .bodyoverlay').remove();

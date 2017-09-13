@@ -35,11 +35,12 @@
 	<script type="text/javascript">
 	document.addEventListener("deviceready", onDeviceReady, false);
 	function onDeviceReady(){
-		navigator.geolocation.getCurrentPosition(geolocationSuccess,[geolocationError],[geolocationOptions]);
+		navigator.geolocation.getCurrentPosition(geolocationSuccess,geolocationError,geolocationOptions);
 		//navigator.geolocation.watchPosition(geolocationSuccess);
 		alert('test');
 	}
 	var geolocationSuccess = function(position) {
+		alert(position.coords.latitude);
         alert('Latitude: '          + position.coords.latitude          + '\n' +
               'Longitude: '         + position.coords.longitude         + '\n' +
               'Altitude: '          + position.coords.altitude          + '\n' +
@@ -50,7 +51,7 @@
               'Timestamp: '         + position.timestamp                + '\n');
     };
 	
-		var uid=localStorage.getItem('User_ID');
+		/*var uid=localStorage.getItem('User_ID');
 		
 		if(typeof uid!='undefine' && uid!='' && uid!=null){
 			checkloggedin(uid);
@@ -60,7 +61,7 @@
 			setTimeout(function(){
 				window.location='login.html';
 			},2000);
-		}
+		}*/
 	</script>
   </body>
 </html>

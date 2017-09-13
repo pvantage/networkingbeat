@@ -384,7 +384,7 @@ body .co-space-inner{
 	width: 100%;
 }
 body .event-detail-two{
-	background-color: rgb(89, 72, 82, 0.9);
+	background: rgb(89, 72, 82, 0.9) !important;
 }
 body .event-detail-two p{
 	color: #fff;

@@ -19,6 +19,7 @@
 	
 	<preference name="phonegap-version" value="cli-6.4.0" />
 	<plugin name="cordova-plugin-device" spec="~1.1.6" />
+	<plugin name="cordova-plugin-geolocation" spec="~2.4.3" />
 	<!--<platform name="android">
 	  <resource-file src="google-services.json" target="google-services.json" />
 	</platform>

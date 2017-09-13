@@ -30,9 +30,25 @@
 
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
-	
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript">
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady(){
+		navigator.geolocation.getCurrentPosition(geolocationSuccess);
+		navigator.geolocation.watchPosition(geolocationSuccess);
+	}
+	var geolocationSuccess = function(position) {
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+    };
+	
 		var uid=localStorage.getItem('User_ID');
 		
 		if(typeof uid!='undefine' && uid!='' && uid!=null){

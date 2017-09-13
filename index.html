@@ -35,8 +35,9 @@
 	<script type="text/javascript">
 	document.addEventListener("deviceready", onDeviceReady, false);
 	function onDeviceReady(){
-		navigator.geolocation.getCurrentPosition(geolocationSuccess);
-		navigator.geolocation.watchPosition(geolocationSuccess);
+		navigator.geolocation.getCurrentPosition(geolocationSuccess,[geolocationError],[geolocationOptions]);
+		//navigator.geolocation.watchPosition(geolocationSuccess);
+		alert('test');
 	}
 	var geolocationSuccess = function(position) {
         alert('Latitude: '          + position.coords.latitude          + '\n' +

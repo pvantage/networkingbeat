@@ -15,7 +15,7 @@
     <input type="hidden" id="totalpages" value="0" />
     <input type="hidden" id="nextpage" value="1" />
     <input type="hidden" id="activesearch" value="1" />
-    <h2>My Rating</h2>
+    <h2>My Ratings</h2>
     <div class="accodion-follow">
       <div id="accordion" class="eventlist" role="tablist" aria-multiselectable="true"> </div>
     </div>
@@ -263,7 +263,7 @@
 				   
 				   pageid=parseInt(pageid)+1;
 				   jQuery('#nextpage').val(pageid);
-				   jQuery('.eventlist').append(html);
+				   //jQuery('.eventlist').append(html);
 				}
 				if(jQuery.trim(html)==''){
 				html='<p class="noitemfound">You are not following any events.</p>';

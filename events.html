@@ -152,7 +152,10 @@
 	{
 		var uid=localStorage.getItem('User_ID');
 		var url=siteurl+'/api/events';
-		//alert('test');
+		var latitude=localStorage.getItem('User_Lat');
+		if(typeof latitude=='undefined' || latitude==null){latitude='';}
+		var longitude=localStorage.getItem('User_Long');
+		if(typeof longitude=='undefined' || longitude==null){longitude='';}
 		var totalpages=jQuery('#totalpages').val();
 		var pageid=jQuery('#nextpage').val();
 		var activesearch=jQuery('#activesearch').val();
@@ -162,7 +165,7 @@
 			 url: url,  
 			 //contentType: contentType,  
 			 dataType: 'json',  
-			 data: {order_rating:order_rating,order_startdate:order_startdate,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid},  
+			 data: {order_rating:order_rating,order_startdate:order_startdate,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid, latitude:latitude, longitude:longitude},  
 			 crossDomain: true,  
 			 beforeSend: function() {
 				/*jQuery('body .bodyoverlay').remove();
@@ -278,9 +281,9 @@
 				jQuery('#totalpages').val(0);
 				jQuery('#nextpage').val(1);
 				jQuery('#activesearch').val(1);
-				var order_rating=jQuery('input[name="order_rating"]').val();
-				var order_startdate=jQuery('input[name="order_startdate"]').val();
-				var order_location=jQuery('input[name="order_location"]').val();
+				var order_rating=jQuery('input[name="order_rating"]:checked').val();
+				var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
+				var order_location=jQuery('input[name="order_location"]:checked').val();
 				var srchtxt=jQuery('#srchtxt').val();
 				showevents(order_rating,order_startdate,order_location,srchtxt);
 			}
@@ -290,24 +293,24 @@
 			jQuery('#totalpages').val(0);
 			jQuery('#nextpage').val(1);
 			jQuery('#activesearch').val(1);
-			var order_rating=jQuery('input[name="order_rating"]').val();
-			var order_startdate=jQuery('input[name="order_startdate"]').val();
-			var order_location=jQuery('input[name="order_location"]').val();
+			var order_rating=jQuery('input[name="order_rating"]:checked').val();
+			var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
+			var order_location=jQuery('input[name="order_location"]:checked').val();
 			var srchtxt=jQuery('#srchtxt').val();
 			showevents(order_rating,order_startdate,order_location,srchtxt);
 			jQuery('#exampleModalLong1 .modal-body button.close').trigger('click');
 		});
-		var order_rating=jQuery('input[name="order_rating"]').val();
-		var order_startdate=jQuery('input[name="order_startdate"]').val();
-		var order_location=jQuery('input[name="order_location"]').val();
+		var order_rating=jQuery('input[name="order_rating"]:checked').val();
+		var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
+		var order_location=jQuery('input[name="order_location"]:checked').val();
 		var srchtxt=jQuery('#srchtxt').val();
 		showevents(order_rating,order_startdate,order_location,srchtxt);
 		
 		$(window).scroll(function() {
 		   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-			   var order_rating=jQuery('input[name="order_rating"]').val();
-				var order_startdate=jQuery('input[name="order_startdate"]').val();
-				var order_location=jQuery('input[name="order_location"]').val();
+			   var order_rating=jQuery('input[name="order_rating"]:checked').val();
+				var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
+				var order_location=jQuery('input[name="order_location"]:checked').val();
 				var srchtxt=jQuery('#srchtxt').val();
 				showevents(order_rating,order_startdate,order_location,srchtxt);
 		   }

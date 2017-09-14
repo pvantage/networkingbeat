@@ -238,7 +238,49 @@
 		  })(marker, i));
 		}
       }
-
+	function mapLocation(lat,lng, mylat, mylong) {
+		var directionsDisplay;
+		var directionsService = new google.maps.DirectionsService();
+		var map;
+	
+		function initialize(lat,lng, mylat, mylong) {
+			directionsDisplay = new google.maps.DirectionsRenderer();
+			var chicago = new google.maps.LatLng(mylat, mylong);
+			var mapOptions = {
+				zoom: 7,
+				center: chicago
+			};
+			map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
+			directionsDisplay.setMap(map);
+			calcRoute(lat,lng, mylat, mylong);
+		}
+	
+		function calcRoute(lat,lng, mylat, mylong) {
+			var start = new google.maps.LatLng(mylat, mylong);
+			//var end = new google.maps.LatLng(38.334818, -181.884886);
+			var end = new google.maps.LatLng(lat, lng);
+	
+			var bounds = new google.maps.LatLngBounds();
+			bounds.extend(start);
+			bounds.extend(end);
+			map.fitBounds(bounds);
+			var request = {
+				origin: start,
+				destination: end,
+				travelMode: google.maps.TravelMode.DRIVING
+			};
+			directionsService.route(request, function (response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay.setDirections(response);
+					directionsDisplay.setMap(map);
+				} else {
+					alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+				}
+			});
+		}
+	
+		initialize(lat,lng, mylat, mylong);
+	}
 	jQuery(document).ready(function(){
 		
 		jQuery( document ).on( "mobileinit", function() {
@@ -417,7 +459,18 @@
 				jQuery('.eventdetail').append(html);
 				if(res['responce'] && res['responce'][0]['latitude']!='' && res['responce'][0]['longitude']!='' && res['responce'][0]['latitude']!=null && res['responce'][0]['longitude']!=null)
 			    {
-					initMap(res['responce'][0]['address'],res['responce'][0]['latitude'],res['responce'][0]['longitude']);
+					//initMap(res['responce'][0]['address'],res['responce'][0]['latitude'],res['responce'][0]['longitude']);
+					var latitude=localStorage.getItem('User_Lat');
+					if(typeof latitude=='undefined' || latitude==null){latitude='';}
+					var longitude=localStorage.getItem('User_Long');
+					if(typeof longitude=='undefined' || longitude==null){longitude='';}
+					if(latitude!='' && longitude!=''){
+						mapLocation(res['responce'][0]['latitude'],res['responce'][0]['longitude'],latitude,longitude);
+					}
+					else
+					{
+						initMap(res['responce'][0]['address'],res['responce'][0]['latitude'],res['responce'][0]['longitude']);
+					}
 				}
 			 },  
 			 error: function(response, d, a){

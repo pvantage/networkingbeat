@@ -246,10 +246,12 @@ position: fixed;
 width: 100%;
 margin: 0 auto;
 bottom: 0;
-background: -webkit-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
+background-image: url(../images/ftr.jpg);
+background-size: cover;
+/*background: -webkit-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
 background: -o-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
 background: -moz-repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
-background: repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);
+background: repeating-radial-gradient(#6f1c46, #fff 100%, #6f1c46 100%);*/
 z-index: 999;
 }
 .foter-main ul{
@@ -384,7 +386,7 @@ body .co-space-inner{
 	width: 100%;
 }
 body .event-detail-two{
-	background: rgb(89, 72, 82, 0.9) !important;
+	background: rgb(89, 72, 82, 0.9) !important; 
 }
 body .event-detail-two p{
 	color: #fff;

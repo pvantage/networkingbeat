@@ -130,7 +130,7 @@
 </button> </li>
         <li class="second-search-for"><input type="text" name="srchtxt" id="srchtxt" style="display:none;" /><a href="javascript:;" class="showsearchtxt"><img src="images/search.png" class="img-fluid" alt="Responsive image"></a></li>
         <li class="three-set-foot"><button type="button" class="btn btn-primary toogle-footer" data-toggle="modal" data-target="#exampleModalLong1"><img src="images/filter.png" class="img-fluid" alt="Responsive image"></button></li>
-
+		<li class="backbtn" style="display:none;"><a href="javascript:;"><img src="images/back.png" class="img-fluid" alt="Responsive image"></a></li>
 
     </ul>
 </div>
@@ -148,8 +148,12 @@
 	<script type="text/javascript" src="js/config.js"></script>
 	
 	<script type="text/javascript">
-	function showevents(order_rating,order_startdate,order_location,srchtxt)
+	function showevents()
 	{
+		var order_rating=jQuery('input[name="order_rating"]:checked').val();
+		var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
+		var order_location=jQuery('input[name="order_location"]:checked').val();
+		var srchtxt=jQuery('#srchtxt').val();
 		var latitude=localStorage.getItem('User_Lat');
 		if(typeof latitude=='undefined' || latitude==null){latitude='';}
 		var longitude=localStorage.getItem('User_Long');
@@ -282,11 +286,8 @@
 				jQuery('#totalpages').val(0);
 				jQuery('#nextpage').val(1);
 				jQuery('#activesearch').val(1);
-				var order_rating=jQuery('input[name="order_rating"]:checked').val();
-				var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
-				var order_location=jQuery('input[name="order_location"]:checked').val();
-				var srchtxt=jQuery('#srchtxt').val();
-				showevents(order_rating,order_startdate,order_location,srchtxt);
+				
+				showevents();
 			}
 		});
 		
@@ -295,26 +296,29 @@
 			jQuery('#totalpages').val(0);
 			jQuery('#nextpage').val(1);
 			jQuery('#activesearch').val(1);
-			var order_rating=jQuery('input[name="order_rating"]:checked').val();
-			var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
-			var order_location=jQuery('input[name="order_location"]:checked').val();
-			var srchtxt=jQuery('#srchtxt').val();
-			showevents(order_rating,order_startdate,order_location,srchtxt);
+			
+			showevents();
 			jQuery('#exampleModalLong1 .modal-body button.close').trigger('click');
 		});
-		var order_rating=jQuery('input[name="order_rating"]:checked').val();
-		var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
-		var order_location=jQuery('input[name="order_location"]:checked').val();
-		var srchtxt=jQuery('#srchtxt').val();
-		showevents(order_rating,order_startdate,order_location,srchtxt);
 		
+		showevents();
+		jQuery('.backbtn a').click(function(){
+			jQuery('#srchtxt').hide();
+			jQuery('a.showsearchtxt').removeClass('active');
+			jQuery('.footer-parts').removeClass('showingsrchfield');
+			jQuery('body').removeClass('srchfieldbody');
+			jQuery('#totalpages').val(0);
+			jQuery('#nextpage').val(1);
+			jQuery('#activesearch').val(1);
+			jQuery(this).parent('li').hide();
+			jQuery('#srchtxt').val('');
+			jQuery('.eventlist').html('');
+			showevents();
+		});
 		$(window).scroll(function() {
 		   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-			   var order_rating=jQuery('input[name="order_rating"]:checked').val();
-				var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
-				var order_location=jQuery('input[name="order_location"]:checked').val();
-				var srchtxt=jQuery('#srchtxt').val();
-				showevents(order_rating,order_startdate,order_location,srchtxt);
+			   
+				showevents();
 		   }
 		});
 		setTimeout(function(){jQuery('li.followingmenu').addClass('active')},1500);

@@ -186,7 +186,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
        <div class="main-point">
-         <h4>Following</h4>
+         <h4 class="main-title">Following</h4>
          <p class="follow-title">You are now following Grilled salmon with veggies Event.</p>
          <ul class="popup-accept">
            <li class="first-accept"><a href="javascript:;" class="accept-follow">Accept</a></li>
@@ -399,7 +399,7 @@
 		  				if(res['responce'][index]['photo']!=''){
 							html+='<img src="'+res['responce'][index]['photo']+'" class="img-fluid img-set-one like-show-set" alt="'+res['responce'][index]['name']+'">';
 						}
-						jQuery('.follow-title').html('You are now following '+res['responce'][index]['name']+'.');
+						
 						if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='No' && res['responce'][index]['canrate']=='Yes'){
                               html+='<a href="#" class="btn btn-primary toogle-footer popup-a" data-toggle="modal" data-target="#exampleModalLong4"><img src="images/heart-new.png" class="img-fluid like-show-heart" alt="Responsive image"></a>';
 						}
@@ -426,6 +426,15 @@
 						}
 						html+='</div>';
 						if(res['responce'][index]['follow']!='' && res['responce'][index]['follow']=='No'){
+							jQuery('.follow-title').html('You are now following '+res['responce'][index]['name']+'.');
+							html+='<div class="second-last-event-set new-detail-plus"><p><a href="#" class="btn btn-primary toogle-footer popup-a" data-toggle="modal" data-target="#exampleModalLong3" ><img src="images/plus.png" class="img-fluid" alt="Responsive image"></a></p></div>';
+						}
+						else{
+							jQuery('.follow-title').html('You are now unfollowing '+res['responce'][index]['name']+'.');
+							jQuery('.main-title').html('Unfollowing');
+							jQuery('.first-accept a').removeClass('accept-follow');
+							jQuery('.first-accept a').addClass('deaccept-follow');
+							jQuery('.first-accept a').text('Undo');
 							html+='<div class="second-last-event-set new-detail-plus"><p><a href="#" class="btn btn-primary toogle-footer popup-a" data-toggle="modal" data-target="#exampleModalLong3" ><img src="images/plus.png" class="img-fluid" alt="Responsive image"></a></p></div>';
 						}
 		
@@ -520,6 +529,46 @@
 						initMap(res['responce'][0]['address'],res['responce'][0]['latitude'],res['responce'][0]['longitude']);
 					}
 				}
+				jQuery('a.deaccept-follow').click(function(){
+					jQuery.ajax({ 
+					 type: 'POST',  
+					 url: url,  
+					 //contentType: contentType,  
+					 dataType: 'json',  
+					 data: {user_id:uid,event_id:event_id,unfollowing:1},  
+					 crossDomain: true,  
+					 beforeSend: function() {
+						
+											
+					 },		
+					 complete: function() {
+							
+					 },
+					 success: function(res) {  
+						var html='';
+					   if(res['responce'])
+					   {
+							//jQuery('.eventdetail').append(html);
+							jQuery('.first-accept').remove();
+							jQuery('.follow-title').html(res['responce']['msg']);
+							setTimeout(function(){
+								window.location='';
+							},1000);
+						}
+					 },  
+					 error: function(response, d, a){
+						jQuery('body .bodyoverlay').remove();
+						jQuery('body .popupbox').remove();
+						var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+						jQuery('body').append(html);
+						
+						jQuery('.okbox').click(function(){
+							jQuery('body .bodyoverlay').remove();
+							jQuery('body .popupbox').remove();
+						}); 
+					 } 
+				   });
+				});
 			 },  
 			 error: function(response, d, a){
 				jQuery('body .bodyoverlay').remove();
@@ -536,6 +585,7 @@
 		
 	
 		jQuery('a.accept-follow').click(function(){
+			if(!jQuery(this).hasClass('deaccept-follow')){
 			jQuery.ajax({ 
 			 type: 'POST',  
 			 url: url,  
@@ -574,6 +624,7 @@
 				}); 
 			 } 
 		   });
+		   }
 		});
 		jQuery('.makerating .number-rating a').click(function(){
 			var prating=jQuery(this).parents('.number-rating');

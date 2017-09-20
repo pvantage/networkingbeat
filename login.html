@@ -172,77 +172,19 @@ jQuery(document).ready(function(){
 
 document.addEventListener("deviceready", init, false);
 function init() {
-	//document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
+	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
 	//document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
 }
 function starttwitterlogin(){
-	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter', '_blank', 'location=yes');
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=yes');
 	ref.addEventListener('loadstart', function(event) { alert(event.url); });
 }
 function startfblogin()
 {
-	jQuery('body .overlayproduct').remove();
-	jQuery('body').append('<div class="overlayproduct"></div>');
-	facebookConnectPlugin.login(["public_profile"],
-		fbLoginSuccess,
-		function (error) { 
-			jQuery('body .overlayproduct').remove();
-			alert("Error: " + JSON.stringify(error));
-		}
-	);
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=no');
+	ref.addEventListener('loadstart', function(event) { alert(event.url); });
 }
-var fbLoginSuccess = function (userData) {
-	jQuery('body .overlayproduct').remove();
-	jQuery('body').append('<div class="overlayproduct"></div>');
-    facebookConnectPlugin.getAccessToken(function(token) {
-        //alert("Token: " + token);
-    }, function(err) {
-        alert("Could not get access token: " + err);
-    });
-	facebookConnectPlugin.api('/me?fields=email,name,id', null,
-	 function(response) {
-		//alert(JSON.stringify(response));
-		$.ajax({
-			type: "POST",
-			 url: siteurl+'/api/fb',
-			data: response,
-			dataType: 'json',
-			crossDomain: true,
-			success: function(res){                            
-				if(res['checklogin']['udetail'])
-				{
-					localStorage.setItem('User_ID', res['checklogin']['udetail']['uid']);
-					localStorage.setItem('User_email', res['checklogin']['udetail']['email']);
-					localStorage.setItem('User_phone', res['checklogin']['udetail']['phone']);
-					window.location ='events.html?uid='+res['checklogin']['udetail']['uid'];
-				
-				}else if(res['checklogin']['error']){				
-					jQuery('body .bodyoverlay').remove();
-					jQuery('body .popupbox').remove();
-					var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>'+res['checklogin']['error']+'</h1><button class="okbox">OK</button></div>';
-					jQuery('body').append(html);
-					
-					jQuery('.okbox').click(function(){
-						jQuery('body .bodyoverlay').remove();
-						jQuery('body .popupbox').remove();
-					});
-					
-				}
-				else
-				{
-					alert('Server error');
-				}
-				
-			}
-		});
-	 });
-}
-/*$scope.twitterLogin = function () {
-$cordovaOauth.twitter("HjBrbOsmyP65q95851kakD9Lk", "feYbtQI6TE5QOeP1W751F9GE9FTNLgyvXeiE9X4Dn3cGPtWf8K").then(function (result) {
-    alert(JSON.stringify(result));
-}, function (error) {
-    alert(JSON.stringify(error));
-});*/
+
 </script>
   </body>
 </html>

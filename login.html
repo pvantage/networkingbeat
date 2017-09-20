@@ -172,11 +172,22 @@ jQuery(document).ready(function(){
 document.addEventListener("deviceready", init, false);
 function init() {
 	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
-	//document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
+	document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
 }
 function starttwitterlogin(){
-	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=yes');
-	ref.addEventListener('loadstart', function(event) { alert(event.url); });
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter/index', '_blank', 'location=no');
+	ref.addEventListener('loadstart', function(event) { 
+		var uid=gup2('uid',event.url);
+		if(typeof uid!='undefined' && uid!=null && uid!=''){
+			var uid=gup2('uid',event.url);
+			localStorage.setItem('User_ID', uid);
+			var email=gup2('email',event.url);
+			localStorage.setItem('User_email', email);
+			var phone=gup2('phone',event.url);
+			localStorage.setItem('User_phone', phone);
+			window.location ='events.html?uid='+uid;
+		}
+	 });
 }
 function startfblogin()
 {

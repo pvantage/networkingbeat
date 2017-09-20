@@ -21,7 +21,7 @@
         <li><a href="javascript:;" id="startfblogin"><!-- <img src="images/fb-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
         <li><a href="javascript:;" id="starttwitterlogin"><!-- <img src="images/tw-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
 </a></li>
-        <li><a href="#"><!-- <img src="images/linked-in-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+        <li><a href="javascript:;" id="startlinkedinlogin"><!-- <img src="images/linked-in-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
 </a></li>
         <li>Sign In Using Social Network</li>
       </ul>
@@ -169,8 +169,6 @@ jQuery(document).ready(function(){
 </script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
-var r=gup2('test','http://localhost/findevents/html/events.html?test=1&test2=0');
-alert(r);
 document.addEventListener("deviceready", init, false);
 function init() {
 	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);

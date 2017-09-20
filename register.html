@@ -18,10 +18,10 @@
 
     <div class="social-login">
       <ul class="ul-login">
-        <li><a href="#"><!-- <img src="images/fb-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-        <li><a href="#"><!-- <img src="images/tw-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+        <li><a href="javascript:;" id="startfblogin"><!-- <img src="images/fb-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+        <li><a href="javascript:;" id="starttwitterlogin"><!-- <img src="images/tw-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
 </a></li>
-        <li><a href="#"><!-- <img src="images/linked-in-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+        <li><a href="javascript:;" id="startlinkedinlogin"><!-- <img src="images/linked-in-icon.png" class="img-fluid" alt="Responsive image"> --><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
 </a></li>
         <li>Sign In Using Social Network</li>
       </ul>
@@ -169,6 +169,35 @@ jQuery(document).ready(function(){
 	
 	
 });
+
+</script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript">
+document.addEventListener("deviceready", init, false);
+function init() {
+	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
+	//document.querySelector("#starttwitterlogin").addEventListener("touchend", starttwitterlogin, false);
+}
+function starttwitterlogin(){
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=yes');
+	ref.addEventListener('loadstart', function(event) { alert(event.url); });
+}
+function startfblogin()
+{
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=no');
+	ref.addEventListener('loadstart', function(event) { 
+		var uid=gup2('uid',event.url);
+		if(typeof uid!='undefined' && uid!=null && uid!=''){
+			var uid=gup2('uid',event.url);
+			localStorage.setItem('User_ID', uid);
+			var email=gup2('email',event.url);
+			localStorage.setItem('User_email', email);
+			var phone=gup2('phone',event.url);
+			localStorage.setItem('User_phone', phone);
+			window.location ='events.html?uid='+uid;
+		}
+	 });
+}
 
 </script>
   </body>

@@ -169,7 +169,8 @@ jQuery(document).ready(function(){
 </script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
-
+var r=gup2('test','http://localhost/findevents/html/events.html?test=1&test2=0');
+alert(r);
 document.addEventListener("deviceready", init, false);
 function init() {
 	document.querySelector("#startfblogin").addEventListener("touchend", startfblogin, false);
@@ -182,7 +183,18 @@ function starttwitterlogin(){
 function startfblogin()
 {
 	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=no');
-	ref.addEventListener('loadstart', function(event) { alert(event.url); });
+	ref.addEventListener('loadstart', function(event) { 
+		var uid=gup2('uid',event.url);
+		if(typeof uid!='undefined' && uid!=null && uid!=''){
+			var uid=gup2('uid',event.url);
+			localStorage.setItem('User_ID', uid);
+			var email=gup2('email',event.url);
+			localStorage.setItem('User_email', email);
+			var phone=gup2('phone',event.url);
+			localStorage.setItem('User_phone', phone);
+			window.location ='events.html?uid='+uid;
+		}
+	 });
 }
 
 </script>

@@ -14,6 +14,15 @@ function gup(sParam) {
         }
     }
 }
+function gup2(sParam,url) {
+  var results = new RegExp('[\?&]' + sParam + '=([^&#]*)').exec(url);
+    if (results==null){
+       return null;
+    }
+    else{
+       return decodeURI(results[1]) || 0;
+    }
+}
 
 function users_menus(para)
 {

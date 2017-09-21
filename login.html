@@ -176,7 +176,7 @@ function init() {
 	document.querySelector("#startlinkedinlogin").addEventListener("touchend", startlinkedinlogin, false);
 }
 function startlinkedinlogin(){
-	var ref = cordova.InAppBrowser.open(siteurl+'/api/linkedin/index', '_blank', 'location=no');
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/linkedin/index', '_blank', 'location=yes');
 	ref.addEventListener('loadstart', function(event) { 
 		var uid=gup2('uid',event.url);
 		if(typeof uid!='undefined' && uid!=null && uid!=''){
@@ -191,7 +191,7 @@ function startlinkedinlogin(){
 	 });
 }
 function starttwitterlogin(){
-	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter/index', '_blank', 'location=no');
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter/index', '_blank', 'location=yes');
 	ref.addEventListener('loadstart', function(event) { 
 		var uid=gup2('uid',event.url);
 		if(typeof uid!='undefined' && uid!=null && uid!=''){
@@ -207,7 +207,7 @@ function starttwitterlogin(){
 }
 function startfblogin()
 {
-	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=no');
+	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=yes');
 	ref.addEventListener('loadstart', function(event) { 
 		var uid=gup2('uid',event.url);
 		if(typeof uid!='undefined' && uid!=null && uid!=''){

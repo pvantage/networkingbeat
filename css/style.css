@@ -9,6 +9,7 @@
     background-size: cover;
     background-attachment: fixed;
 }
+.indexpagebg .login-all{ margin-top:0px;}
 body .errorbox{
 	top:30%;
 }
@@ -1161,11 +1162,23 @@ line-height: 10px;
 }
 
 
-@media only screen and (min-width: 290px) and (max-width: 306px) {
-	
+@media only screen and (max-width: 400px) {
+.ul-login li a i {
+    font-size: 13px;
+}
+.ul-login li {
+    padding: 12px 2px;
+}
+.ul-login li:first-child {
+    padding-left: 3px;
+    padding-right: 3px;
+}	
 .ul-login li{ font-size:13px;}
-.login-page-form .form-group input {
-    width: 84%;	
+
+.login-page-form .form-group span {
+    width: 15%;
+    text-align: left;
+}
 }
 
 

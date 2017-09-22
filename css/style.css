@@ -2,6 +2,9 @@
 .event-detail-two{
 	background-color: rgba(89, 72, 82, 0.9)  !important; 
 }
+body{
+    padding-top: 15px;
+}
 .indexpagebg {
 
 	background-image: url("../images/indexbg.jpg");
@@ -745,6 +748,13 @@ body .accodion-follow .collapse{
 }
 .following-page h2{
 	color: #831c51;
+    text-align: center;
+    padding: 5px;
+    font-size: 27px;
+    font-weight: normal;
+}
+.eventfollowing {
+    color: #831c51;
     text-align: center;
     padding: 5px;
     font-size: 27px;

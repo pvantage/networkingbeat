@@ -1161,6 +1161,13 @@ line-height: 10px;
 }
 
 
+@media only screen and (min-width: 290px) and (max-width: 306px) {
+	
+.ul-login li{ font-size:13px;}
+.login-page-form .form-group input {
+    width: 84%;	
+}
+
 
 
 /******************************************sir css********************************************************************/

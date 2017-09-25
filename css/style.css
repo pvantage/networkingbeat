@@ -98,30 +98,36 @@ opacity: 0.7;
     
     height: auto;
 }
-.ul-login li:first-child{
-	 padding-left: 9px;
-    padding-right: 9px;
-}
+
 body .login-page-form .error{
 	color: #ff0000 !important;
 }
 .ul-login li{
-	display: inline-block;
-	display: inline-block;
-padding: 12px 6px;
+
 border-right: 1px solid #fff;
 color: #fff;
 font-family: 'Lato', sans-serif;
 font-size: 14px;
+list-style:none;
+float:left;
 }
+.ul-login li a{ 
+display: block;
+    line-height: 35px;
+    min-height: 35px;
+    min-width: 35px;
+
+}
+
 .ul-login li a i{
 	color: #fff;
 }
-.ul-login li a i:first-child{
-	padding: 0px 2px;
-}
+
 .ul-login li:last-child{
 	border: none;
+	line-height: 35px;
+	padding:0 10px;
+
 }
 .ul-login {
 	display: inline-block;
@@ -1003,16 +1009,23 @@ line-height: 10px;
 
 	.inner-section-event{
 		position: relative;
+		overflow:hidden;
+		
 	}
 	
 
 	.inner-two{
-		position: absolute;
+/*		position: absolute;
         bottom: 0;
-        background-color: rgba(255,255,255,0.9);
+*/        background-color: #fff;
         width: 100%;
         padding: 5px 10px 5px 10px;
 	}
+	
+.main-one {
+    margin-bottom: 10px;
+}	
+	
 	.inner-two p{
 		font-size: 12px;
 		line-height: 16px;

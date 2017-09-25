@@ -222,7 +222,19 @@ function startfblogin()
 		}
 	 });
 }
-
+var onSuccess = function(position) {
+		
+		localStorage.setItem('User_Lat',position.coords.latitude);
+		localStorage.setItem('User_Long',position.coords.longitude);
+		
+    };
+ function onError(error) {
+        
+    }
+   var lati=localStorage.getItem('User_Lat');
+ if(typeof lati=='undefined' || lati==null || lati==''){
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
 </script>
   </body>
 </html>

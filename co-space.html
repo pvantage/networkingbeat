@@ -117,6 +117,7 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" src="js/config.js"></script>
 <script type="text/javascript">
 	function showevents()
@@ -165,9 +166,9 @@
 							html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><img src="'+res['responce'][index]['photo']+'" class="img-fluid img-set-one" alt="'+res['responce'][index]['name']+'"></a>';
 						}
 					html+='<div class="inner-two">';
-					if(res['responce'][index]['detail']!='' && res['responce'][index]['detail']!=null){
+					/*if(res['responce'][index]['detail']!='' && res['responce'][index]['detail']!=null){
 					  html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><p>'+res['responce'][index]['detail']+'</p></a>';
-					 }
+					 }*/
 					  html+='<div class="last-inner-set"><div class="ist-div">';
 					  if(res['responce'][index]['address']!='' && res['responce'][index]['address']!=null){
 					  html+='<a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'#gmap"><i class="fa fa-map-marker fa-lg locatio-map" aria-hidden="true"></i></a><p><a href="co-space-detail.html?uid='+uid+'&space_id='+res['responce'][index]['id']+'&spacetype='+res['responce'][index]['spacetype']+'"><b>'+res['responce'][index]['address']+'</b></a></p>';
@@ -293,6 +294,19 @@
 		});
 		setTimeout(function(){jQuery('li.cospacemenu').addClass('active')},1500);
 	});
+	var onSuccess = function(position) {
+		
+		localStorage.setItem('User_Lat',position.coords.latitude);
+		localStorage.setItem('User_Long',position.coords.longitude);
+		
+    };
+ function onError(error) {
+        
+    }
+   var lati=localStorage.getItem('User_Lat');
+ if(typeof lati=='undefined' || lati==null || lati==''){
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
 	</script>
 </body>
 </html>

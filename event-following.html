@@ -225,7 +225,7 @@
                               html+='<li class="heart-like"><a href="javascript:;"><i class="fa fa-heart-o  fa-lg" aria-hidden="true"></i></a> </li>';
 						}
                        html+='<li class="eye-show"><a href="event-detail.html?uid='+uid+'&event_id='+res['responce'][index]['id']+'&type=following"><i class="fa fa-eye  fa-lg" aria-hidden="true"></i></a></li></ul></div></div>';
-                  		html+='<div class="second-last-event-set"><p>'+res['responce'][index]['startdate']+'</p></div></div></div></div>';
+                  		html+='<div class="second-last-event-set"><p><span>'+res['responce'][index]['startdate']+'</span></p></div></div></div></div>';
 						
 				   });
 				   jQuery('#activesearch').val(1);
@@ -233,7 +233,7 @@
 				   if(pageid==1){
 						jQuery('#totalpages').val(res['totalpage']);
 						if(res['totalpage']==1){jQuery('#activesearch').val(0);}
-						localStorage.setItem('Event_list_following',html);
+						localStorage.setItem('Event_list',html);
 						jQuery('.eventlist').html('');
 				   }
 				  else if(parseInt(totalpages)>=pageid){
@@ -248,7 +248,7 @@
 				}
 				if(jQuery.trim(html)==''){
 				html='<p class="noitemfound">There is no event found.</p>';
-				localStorage.setItem('Event_list_following',html);
+				localStorage.setItem('Event_list',html);
 				if(pageid==1){jQuery('.eventlist').html(html);}
 				}
 				else{
@@ -270,9 +270,9 @@
 		}
 	}
 	jQuery(document).ready(function(){
-		var Event_list_following=localStorage.getItem('Event_list_following');
-		if(typeof Event_list_following!='undefined' && Event_list_following!=null && Event_list_following!=''){
-			jQuery('.eventlist').append(Event_list_following);
+		var Event_list=localStorage.getItem('Event_list');
+		if(typeof Event_list!='undefined' && Event_list!=null && Event_list!=''){
+			jQuery('.eventlist').append(Event_list);
 		}
 		jQuery( document ).on( "mobileinit", function() {
 			jQuery.mobile.allowCrossDomainPages = true;

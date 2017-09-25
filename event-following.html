@@ -248,6 +248,7 @@
 				}
 				if(jQuery.trim(html)==''){
 				html='<p class="noitemfound">There is no event found.</p>';
+				localStorage.setItem('Event_list',html);
 				if(pageid==1){jQuery('.eventlist').html(html);}
 				}
 				else{

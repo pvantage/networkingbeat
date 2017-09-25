@@ -405,6 +405,7 @@ body .event-detail-two .first-heading-detail{
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 20px;
+	max-width:90%;
 }
 .event-detail-two .last-inner-set{
 	width: 100%;
@@ -1173,6 +1174,7 @@ line-height: 10px;
 }
 .event-detail-two{
 	padding: 5px 15px;
+	position:relative;
 } 
 
 .event-detail-two .ist-div{
@@ -1186,17 +1188,7 @@ line-height: 10px;
 
 
 @media only screen and (max-width: 400px) {
-.ul-login li a i {
-    font-size: 13px;
-}
-.ul-login li {
-    padding: 12px 2px;
-}
-.ul-login li:first-child {
-    padding-left: 3px;
-    padding-right: 3px;
-}	
-.ul-login li{ font-size:13px;}
+
 
 .login-page-form .form-group span {
     width: 15%;

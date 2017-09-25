@@ -125,11 +125,11 @@ jQuery(document).ready(function(){
 		window.location=localStorage.getItem('UserRedirect');
 	}
 	var email=localStorage.getItem('User_email');
-	if(typeof email!='undefine' && email!='' && email!=null){
+	if(typeof email!='undefine' && email!='' && email!=null && email!='0'){
 		jQuery('#email').val(email);
 	}
 	var phone=localStorage.getItem('User_phone');
-	if(typeof phone!='undefine' && phone!='' && phone!=null && phone!='null'){
+	if(typeof phone!='undefine' && phone!='' && phone!=null && phone!='null' && phone!='0'){
 		jQuery('#phone').val(phone);
 	}
 	jQuery('#loginuser').submit( function(){	

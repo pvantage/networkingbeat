@@ -164,7 +164,19 @@ jQuery(document).ready(function(){
 			 }, 
 			 crossDomain: true,  
 			 success: function(res) { 
-				if(res['users']['updateuser'])
+				if(res['error']){				
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+					var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>'+res['error']+'</h1><button class="okbox">OK</button></div>';
+					jQuery('body').append(html);
+					
+					jQuery('.okbox').click(function(){
+						jQuery('body .bodyoverlay').remove();
+						jQuery('body .popupbox').remove();
+					});
+					
+				}
+				else if(res['users']['updateuser'])
 				{
 					localStorage.setItem('User_email', res['users']['udetail']['email']);
 					localStorage.setItem('User_phone', res['users']['udetail']['phone']);
@@ -177,22 +189,8 @@ jQuery(document).ready(function(){
 						jQuery('body .popupbox').remove();
 					});
 				
-				}else if(res['error']){				
-					jQuery('body .bodyoverlay').remove();
-					jQuery('body .popupbox').remove();
-					var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>'+res['error']+'</h1><button class="okbox">OK</button></div>';
-					jQuery('body').append(html);
-					
-					jQuery('.okbox').click(function(){
-						jQuery('body .bodyoverlay').remove();
-						jQuery('body .popupbox').remove();
-					});
-					
 				}
-				else
-				{
-					alert('Server error');
-				}
+				
 				return false; 
 			 },  
 			 error: function(response, d, a){

@@ -212,8 +212,8 @@
 				}
 				if(jQuery.trim(html)==''){
 				html='<p class="noitemfound">There is no space found.</p>';
-				localStorage.setItem('Event_list_cospcae',html);
-				if(pageid==1){jQuery('.eventlist').html(html);}
+				
+				if(pageid==1){jQuery('.eventlist').html(html);localStorage.setItem('Event_list_cospcae',html);}
 				}
 				else{
 				   jQuery('.eventlist').append(html);

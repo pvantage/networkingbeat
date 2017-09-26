@@ -213,8 +213,8 @@
 				}
 				if(jQuery.trim(html)==''){
 				html='<p class="noitemfound">There is no space found.</p>';
-				localStorage.setItem('Event_list_openspcae',html);
-				if(pageid==1){jQuery('.eventlist').html(html);}
+				
+				if(pageid==1){jQuery('.eventlist').html(html);localStorage.setItem('Event_list_openspcae',html);}
 				}
 				else{
 				   jQuery('.eventlist').append(html);

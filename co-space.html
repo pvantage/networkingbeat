@@ -59,34 +59,31 @@
         <div class="modal-body">
           <button type="button" class="close clse-set" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
           <div class="event-filter">
-            <h2>filters</h2>
-            <div class="ratings-filter">
-              <h4>ratings</h4>
-              <div class="radio red">
-                <label>
-                <input type="radio" value="DESC" name="order_rating" checked="checked">
-                high to low</label>
-              </div>
-              <div class="radio black">
-                <label>
-                <input type="radio" value="ASC" name="order_rating">
-                low to high</label>
-              </div>
-            </div>
-            <div class="ratings-filter">
-              <h4>LOCATION</h4>
-              <div class="radio red">
-                <label>
-                <input type="radio" value="ASC" name="order_location" checked="checked">
-                Near to Far</label>
-              </div>
-              <div class="radio black">
-                <label>
-                <input type="radio" value="DESC" name="order_location">
-                Far to Near</label>
-              </div>
-            </div>
-          </div>
+  <h2>filters</h2>
+  <div class="ratings-filter">
+    <h4>ratings</h4>
+
+
+<div class="radio red">
+  <label><input type="radio" value="DESC" name="order_rating" checked="checked">high to low</label>
+</div>
+<div class="radio black">
+  <label><input type="radio" value="ASC" name="order_rating">low to high</label>
+</div>
+</div>
+<div class="ratings-filter showhidelocationfilter">
+ <h4>LOCATION</h4>
+<div class="radio red">
+  <label><input type="radio" value="location_ASC" name="order_by">Near to Far</label>
+</div>
+<div class="radio black">
+  <label><input type="radio" value="location_DESC" name="order_by">Far to Near</label>
+</div>
+</div>
+
+
+  
+</div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary filter-button">Filter</button>
@@ -122,8 +119,7 @@
 <script type="text/javascript">
 	function showevents()
 	{
-		var order_rating=jQuery('input[name="order_rating"]:checked').val();
-		var order_location=jQuery('input[name="order_location"]:checked').val();
+		var order_by=jQuery('input[name="order_by"]:checked').val();
 		var srchtxt=jQuery('#srchtxt').val();
 		var latitude=localStorage.getItem('User_Lat');
 		if(typeof latitude=='undefined' || latitude==null){latitude='';}
@@ -140,7 +136,7 @@
 			 url: url,  
 			 //contentType: contentType,  
 			 dataType: 'json',  
-			 data: {order_rating:order_rating,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid,spacetype:'coworking', latitude:latitude, longitude:longitude},  
+			 data: {order_by:order_by,srchtxt:srchtxt,page:pageid,user_id:uid,spacetype:'coworking', latitude:latitude, longitude:longitude},  
 			 crossDomain: true,  
 			 beforeSend: function() {
 				/*jQuery('body .bodyoverlay').remove();
@@ -302,10 +298,11 @@
 		
     };
  function onError(error) {
-        
+        jQuery('.showhidelocationfilter').hide();
     }
    var lati=localStorage.getItem('User_Lat');
  if(typeof lati=='undefined' || lati==null || lati==''){
+ jQuery('.showhidelocationfilter').hide();
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 	</script>

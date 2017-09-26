@@ -75,10 +75,10 @@
 
 
 <div class="radio red">
-  <label><input type="radio" value="DESC" name="order_rating" checked="checked">high to low</label>
+  <label><input type="radio" value="rating_DESC" name="order_by">high to low</label>
 </div>
 <div class="radio black">
-  <label><input type="radio" value="ASC" name="order_rating">low to high</label>
+  <label><input type="radio" value="rating_ASC" name="order_by">low to high</label>
 </div>
 </div>
 
@@ -86,20 +86,20 @@
 <div class="ratings-filter">
  <h4>DATE</h4>
 <div class="radio red">
-  <label><input type="radio" value="DESC" name="order_startdate" checked="checked">New to Old</label>
+  <label><input type="radio" value="startdate_ASC" checked="checked" name="order_by">New to Old</label>
 </div>
 <div class="radio black">
-  <label><input type="radio" value="ASC" name="order_startdate">Old to New</label>
+  <label><input type="radio" value="startdate_DESC" name="order_by">Old to New</label>
 </div>
 </div>
 
-<div class="ratings-filter">
+<div class="ratings-filter showhidelocationfilter">
  <h4>LOCATION</h4>
 <div class="radio red">
-  <label><input type="radio" value="ASC" name="order_location" checked="checked">Near to Far</label>
+  <label><input type="radio" value="location_ASC" name="order_by">Near to Far</label>
 </div>
 <div class="radio black">
-  <label><input type="radio" value="DESC" name="order_location">Far to Near</label>
+  <label><input type="radio" value="location_DESC" name="order_by">Far to Near</label>
 </div>
 </div>
 
@@ -152,9 +152,9 @@
 	<script type="text/javascript">
 	function showevents()
 	{
-		var order_rating=jQuery('input[name="order_rating"]:checked').val();
-		var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
-		var order_location=jQuery('input[name="order_location"]:checked').val();
+		var order_by=jQuery('input[name="order_by"]:checked').val();
+		//var order_startdate=jQuery('input[name="order_startdate"]:checked').val();
+		//var order_location=jQuery('input[name="order_location"]:checked').val();
 		var srchtxt=jQuery('#srchtxt').val();
 		var uid=localStorage.getItem('User_ID');
 		var url=siteurl+'/api/events';
@@ -171,7 +171,7 @@
 			 url: url,  
 			 //contentType: contentType,  
 			 dataType: 'json',  
-			 data: {order_rating:order_rating,order_startdate:order_startdate,order_location:order_location,srchtxt:srchtxt,page:pageid,user_id:uid, latitude:latitude, longitude:longitude},  
+			 data: {order_by:order_by,srchtxt:srchtxt,page:pageid,user_id:uid, latitude:latitude, longitude:longitude},  
 			 crossDomain: true,  
 			 beforeSend: function() {
 				/*jQuery('body .bodyoverlay').remove();
@@ -337,11 +337,13 @@
 		
     };
  function onError(error) {
-        
+        jQuery('.showhidelocationfilter').hide();
     }
    var lati=localStorage.getItem('User_Lat');
  if(typeof lati=='undefined' || lati==null || lati==''){
+ jQuery('.showhidelocationfilter').hide();
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	
 }
 	</script>
   </body>

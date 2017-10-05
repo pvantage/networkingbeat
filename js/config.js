@@ -14,26 +14,17 @@ function gup(sParam) {
         }
     }
 }
-function gup2(sParam,url) {
-  var results = new RegExp('[\?&]' + sParam + '=([^&#]*)').exec(url);
-    if (results==null){
-       return null;
-    }
-    else{
-       return decodeURI(results[1]) || 0;
-    }
-}
 
 function users_menus(para)
 {
-	var menu='<li class="profilemenu"><img src="images/GuestUserIcon.png" class="img-fluid" alt="Responsive image"><a href="update_profile.html'+para+'">MY PROFILE</a></li>';
-		menu+='<li class="eventmenu"><i class="fa fa-calendar-check-o fa-lg" aria-hidden="true"></i><a href="events.html'+para+'">EVENTS</a></li>';
-		menu+='<li class="openspacemenu"><img src="images/openwork.png" class="img-fluid" alt="Responsive image"><a href="open-space.html'+para+'">';
+	var menu='<li class="profilemenu"><span><img src="images/GuestUserIcon.png" class="img-fluid" alt="Responsive image"></span><a href="update_profile.html'+para+'">MY PROFILE</a></li>';
+		menu+='<li class="eventmenu"><span><i class="fa fa-calendar-check-o fa-lg" aria-hidden="true"></i></span><a href="events.html'+para+'">EVENTS</a></li>';
+		menu+='<li class="openspacemenu"><span><img src="images/openwork.png" class="img-fluid" alt="Responsive image"></span><a href="open-space.html'+para+'">';
 		menu+="OPEN WORK SPACES & CAFE'S</a></li>";
-		menu+='<li class="cospacemenu"><i class="fa fa-university fa-lg" aria-hidden="true"></i><a href="co-space.html'+para+'">Coworking spaces</a></li>';
-		menu+='<li class="followingmenu"><i class="fa fa-heart fa-lg" aria-hidden="true"></i><a href="event-following.html'+para+'">EVENTS I AM FOLLOWING</a></li>';
-		menu+='<li class="ratingmenu"><i class="fa fa-star fa-lg" aria-hidden="true"></i><a href="rating.html'+para+'">MY RATINGS</a></li>';
-		menu+='<li><img src="images/logout.png" class="img-fluid" alt="Responsive image"><a href="logout.html'+para+'">LOG OUT</a></li>';
+		menu+='<li class="cospacemenu"><span><i class="fa fa-university fa-lg" aria-hidden="true"></i></span><a href="co-space.html'+para+'">Coworking spaces</a></li>';
+		menu+='<li class="followingmenu"><span><i class="fa fa-heart fa-lg" aria-hidden="true"></i></span><a href="event-following.html'+para+'">EVENTS I AM FOLLOWING</a></li>';
+		menu+='<li class="ratingmenu"><span><i class="fa fa-star fa-lg" aria-hidden="true"></i></span><a href="rating.html'+para+'">MY RATINGS</a></li>';
+		menu+='<li><span><img src="images/logout.png" class="img-fluid" alt="Responsive image"></span><a href="logout.html'+para+'">LOG OUT</a></li>';
 	return menu;
 }
 

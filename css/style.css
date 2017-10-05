@@ -1,4 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
+.inner-nav-bar li span {
+    width: 49px;
+    float: left;
+}
+.next-view .fa-lg {
+    font-size: 1.33333333em !important;
+
+}
+.next-view .eye-show a i {
+    font-size: 25px !important;
+}
 .event-detail-two{
 	background-color: rgba(89, 72, 82, 0.9)  !important; 
 }
@@ -29,6 +41,12 @@ body .inner-two p{
 body .last-inner-set p a b{
 	color: #000000;
 
+}
+
+.second-leave-feedback a {
+    padding: 0px;
+    font-size: 16px;
+    vertical-align: text-bottom;
 }
 .foter-main .showingsrchfield .second-search-for{
 	 display: block !important;;
@@ -504,7 +522,7 @@ body .my-feeback{
 
 .event-filter{
 	text-align: center;
-	margin-top: 15%;
+    margin-top: 5%;
 	text-transform: uppercase;
 }
 .event-filter h2{
@@ -720,20 +738,28 @@ body .popup-model .clse{
     width: 40px;
     border-radius: 30px;
 }
+.eventdetail .feedback-row-event .first-feedback{ border:none;}
+li.line {
+    width: 1px;
+    height: 11px;
+    background: #fff;
+    margin-right: 7px;
+}
 .one-acc{
 	    padding: 0;
     display: inline-block;
     margin: 0;
     width: 100%;
 }
-.one-acc .first-close{
-	display: inline-block;
+.one-acc .first-close {
+    display: inline-block;
+    WIDTH: 93%;
 }
-.one-acc .second-open{
-	display: inline-block;
-	float: right;
+.one-acc .second-open {
+    display: inline-block;
+    float: right;
+    WIDTH: 7%;
 }
-
 .accodion-follow .card-header{
 	       background: #fff;
     border-bottom: none;
@@ -844,7 +870,6 @@ body .locatio-map{
 		margin-top: 1px;
 	}
 	.last-inner-set img{
-		float: left;
 		margin-right: 4px;
 		width: auto;
 	}
@@ -985,7 +1010,9 @@ line-height: 10px;
     
 }
 @media only screen and (max-width: 480px) {
-	
+body .locatio-map {
+    margin-top: 8px;
+}	
 .new-one-add
 	.img-set-one{
 	width: 100%;
@@ -1045,10 +1072,10 @@ line-height: 10px;
 		margin-top: 1px;
 	}
 	.last-inner-set img{
-		float: left;
 		margin-right: 4px;
 		
 	}
+
 	.last-inner-set p{
 		font-size: 14px;
 		margin: 0;

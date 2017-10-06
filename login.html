@@ -180,6 +180,7 @@ function startlinkedinlogin(){
 		var uid=gup2('uid',event.url);
 		if(typeof uid!='undefined' && uid!=null && uid!=''){
 			var uid=gup2('uid',event.url);
+			
 			localStorage.setItem('User_ID', uid);
 			var email=gup2('email',event.url);
 			localStorage.setItem('User_email', email);
@@ -211,6 +212,7 @@ function startfblogin()
 		var uid=gup2('uid',event.url);
 		if(typeof uid!='undefined' && uid!=null && uid!=''){
 			var uid=gup2('uid',event.url);
+			alert(uid);
 			localStorage.setItem('User_ID', uid);
 			var email=gup2('email',event.url);
 			localStorage.setItem('User_email', email);

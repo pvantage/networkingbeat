@@ -155,51 +155,49 @@ function init() {
 }
 function startlinkedinlogin(){
 	var ref = cordova.InAppBrowser.open(siteurl+'/api/linkedin/index', '_blank', 'location=no');
-	ref.addEventListener('loadstart', function(event) { 
-		var uid=gup2('uid',event.url);
-		if(typeof uid!='undefined' && uid!=null && uid!=''){
-			var uid=gup2('uid',event.url);
-			localStorage.setItem('User_ID', uid);
-			var email=gup2('email',event.url);
-			localStorage.setItem('User_email', email);
-			var phone=gup2('phone',event.url);
-			localStorage.setItem('User_phone', phone);
-			window.location ='events.html?uid='+uid;
-		}
-	 });
+	ref.addEventListener('loadstop', loadStopCallBack);
+    ref.addEventListener('loaderror', loadErrorCallBack);
 }
 function starttwitterlogin(){
 	var ref = cordova.InAppBrowser.open(siteurl+'/api/twitter/index', '_blank', 'location=no');
-	ref.addEventListener('loadstart', function(event) { 
-		var uid=gup2('uid',event.url);
-		if(typeof uid!='undefined' && uid!=null && uid!=''){
-			var uid=gup2('uid',event.url);
-			localStorage.setItem('User_ID', uid);
-			var email=gup2('email',event.url);
-			localStorage.setItem('User_email', email);
-			var phone=gup2('phone',event.url);
-			localStorage.setItem('User_phone', phone);
-			window.location ='events.html?uid='+uid;
-		}
-	 });
+	ref.addEventListener('loadstop', loadStopCallBack);
+    ref.addEventListener('loaderror', loadErrorCallBack);
 }
 function startfblogin()
 {
 	var ref = cordova.InAppBrowser.open(siteurl+'/api/facebook/login', '_blank', 'location=no');
-	ref.addEventListener('loadstart', function(event) { 
-		var uid=gup2('uid',event.url);
-		if(typeof uid!='undefined' && uid!=null && uid!=''){
-			var uid=gup2('uid',event.url);
-			localStorage.setItem('User_ID', uid);
-			var email=gup2('email',event.url);
-			localStorage.setItem('User_email', email);
-			var phone=gup2('phone',event.url);
-			localStorage.setItem('User_phone', phone);
-			window.location ='events.html?uid='+uid;
-		}
-	 });
+	ref.addEventListener('loadstop', loadStopCallBack);
+    ref.addEventListener('loaderror', loadErrorCallBack);
 }
-
+function loadStopCallBack(event) {
+    var uid=gup2('uid',event.url);
+	if(typeof uid!='undefined' && uid!=null && uid!=''){
+		var uid=gup2('uid',event.url);
+		localStorage.setItem('User_ID', uid);
+		var email=gup2('email',event.url);
+		localStorage.setItem('User_email', email);
+		var phone=gup2('phone',event.url);
+		localStorage.setItem('User_phone', phone);
+		window.location ='events.html?uid='+uid;
+	}
+}
+function loadErrorCallBack(params) {
+    alert('Sorry we cannot open that page. Message from the server is : '+ params.message);
+	window.location ='login.html';
+}
+var onSuccess = function(position) {
+		
+		localStorage.setItem('User_Lat',position.coords.latitude);
+		localStorage.setItem('User_Long',position.coords.longitude);
+		
+    };
+ function onError(error) {
+        
+    }
+   var lati=localStorage.getItem('User_Lat');
+ if(typeof lati=='undefined' || lati==null || lati==''){
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
 </script>
   </body>
 </html>

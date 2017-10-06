@@ -8,6 +8,9 @@
     font-size: 1.33333333em !important;
 
 }
+.filtermodelbox {
+    margin-top: 18%;
+}
 .next-view .eye-show a i {
     font-size: 25px !important;
 }
@@ -1011,7 +1014,7 @@ line-height: 10px;
 }
 @media only screen and (max-width: 480px) {
 body .locatio-map {
-    margin-top: 8px;
+    margin-top: 4px;
 }	
 .new-one-add
 	.img-set-one{

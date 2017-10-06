@@ -59,7 +59,7 @@
 <!-- filter model -->
 
 <div class="filter-model">
-<div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+<div class="modal fade filtermodelbox" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
   <div class="modal-dialog main-part" role="document">
     <div class="modal-content inner-part">
     
@@ -324,7 +324,7 @@
 		showevents();
 		
 		$(window).scroll(function() {
-		   if($(window).scrollTop() + $(window).height() > $(document).height() - 150) {
+		   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
 				showevents();
 		   }
 		});

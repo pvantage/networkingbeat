@@ -192,6 +192,8 @@ function startfblogin()
 }
 function loadStopCallBack(event) {
     var uid=gup2('uid',event.url);
+	alert(event.url);
+	alert(uid);
 	if(typeof uid!='undefined' && uid!=null && uid!=''){
 		var uid=gup2('uid',event.url);
 		localStorage.setItem('User_ID', uid);

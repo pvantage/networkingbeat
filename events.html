@@ -16,7 +16,7 @@
   <input type="hidden" id="totalpages" value="0" />
 	<input type="hidden" id="nextpage" value="1" />
 	<input type="hidden" id="activesearch" value="1" />
-	<select id="setaddress"></select>
+	<select id="setaddress" style="display:none;"></select>
 <div class="row-fluid first-set eventlist"></div>
 <!-- footer -->
 <!-- Modal -->
@@ -165,6 +165,7 @@
 		 complete: function() {
 		 },
 		 success: function(res) { 
+		 	jQuery('#setaddress').show();
 			var html='<option value="">Select Location</option>';
 			var lati=localStorage.getItem('User_Lat');
  			if(typeof lati!='undefined' && lati!=null && lati!=''){

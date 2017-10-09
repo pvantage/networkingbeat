@@ -195,6 +195,12 @@
 	showlocations();
 	function showevents()
 	{
+		jQuery( document ).on( "mobileinit", function() {
+			jQuery.mobile.allowCrossDomainPages = true;
+		});
+		var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+		if(window.XDomainRequest){contentType = "text/plain";}
+		jQuery.support.cors = true;
 		var order_by=jQuery('input[name="order_by"]:checked').val();
 		var setaddress=jQuery('#setaddress').val();
 		var presetaddress=localStorage.getItem('Event_setaddress');
@@ -218,7 +224,7 @@
 			jQuery.ajax({ 
 			 type: 'POST',  
 			 url: url,  
-			 //contentType: contentType,  
+			 contentType: contentType,  
 			 dataType: 'json',  
 			 data: {order_by:order_by,srchtxt:srchtxt,page:pageid,user_id:uid, latitude:latitude, longitude:longitude,setaddress:setaddress},  
 			 crossDomain: true,  

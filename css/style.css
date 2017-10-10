@@ -5,6 +5,13 @@
     transform: inherit !important;
     top: 36px !important;
 }
+
+.show-tick button.btn.dropdown-toggle.btn-default {
+    background: #7e2952 !important;
+    color: #fff;
+}
+.show-tick .dropdown-menu > .active > a, .show-tick .dropdown-menu > .active > a:hover, .show-tick .dropdown-menu > .active > a:focus{    background-color: #c696ae;}
+
 .btn-group.bootstrap-select.show-tick {
     width: 100% !important;
     float: left;

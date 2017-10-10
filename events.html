@@ -175,99 +175,99 @@
 	<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 	<script type="text/javascript">
 	function followunfollow(event_id){
-	var $this=jQuery('#follow_'+event_id);
-	var follow=jQuery($this).attr('data-follow');
-	var title=jQuery($this).attr('data-title');
-	var uid=localStorage.getItem('User_ID');
-		var url=siteurl+'/api/events';
-	if(follow=='yes'){
-		jQuery('.follow-title').html('You are now unfollowing '+title+'.');
-		jQuery('.main-title').html('Unfollowing');
-		jQuery('.popup-accept').html(' <li class="first-accept"><a href="javascript:;" class="accept-follow" id="unaccept_'+event_id+'">Undo</a></li>');
-	}
-	if(follow=='no'){
-		jQuery('.follow-title').html('You are now following '+title+'.');
-		jQuery('.main-title').html('Following');
-		jQuery('.popup-accept').html(' <li class="first-accept"><a href="javascript:;" class="accept-follow" id="accept_'+event_id+'">Accept</a></li>');
-	}
-	jQuery('#unaccept_'+event_id).click(function(){
-		jQuery.ajax({ 
-		 type: 'POST',  
-		 url: url,  
-		 //contentType: contentType,  
-		 dataType: 'json',  
-		 data: {user_id:uid,event_id:event_id,unfollowing:1},  
-		 crossDomain: true,  
-		 beforeSend: function() {
-			
-								
-		 },		
-		 complete: function() {
+		var $this=jQuery('#follow_'+event_id);
+		var follow=jQuery($this).attr('data-follow');
+		var title=jQuery($this).attr('data-title');
+		var uid=localStorage.getItem('User_ID');
+			var url=siteurl+'/api/events';
+		if(follow=='yes'){
+			jQuery('.follow-title').html('You are now unfollowing '+title+'.');
+			jQuery('.main-title').html('Unfollowing');
+			jQuery('.popup-accept').html(' <li class="first-accept"><a href="javascript:;" class="accept-follow" id="unaccept_'+event_id+'">Undo</a></li>');
+		}
+		if(follow=='no'){
+			jQuery('.follow-title').html('You are now following '+title+'.');
+			jQuery('.main-title').html('Following');
+			jQuery('.popup-accept').html(' <li class="first-accept"><a href="javascript:;" class="accept-follow" id="accept_'+event_id+'">Accept</a></li>');
+		}
+		jQuery('#unaccept_'+event_id).click(function(){
+			jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {user_id:uid,event_id:event_id,unfollowing:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
 				
-		 },
-		 success: function(res) {  
-			var html='';
-		   if(res['responce'])
-		   {
-		   		jQuery('.popup-accept').html('');
-				jQuery($this).attr('data-follow','no');
-				jQuery('.follow-title').html(res['responce']['msg']);
-			}
-		 },  
-		 error: function(response, d, a){
-			jQuery('body .bodyoverlay').remove();
-			jQuery('body .popupbox').remove();
-			var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
-			jQuery('body').append(html);
-			
-			jQuery('.okbox').click(function(){
+									
+			 },		
+			 complete: function() {
+					
+			 },
+			 success: function(res) {  
+				var html='';
+			   if(res['responce'])
+			   {
+					jQuery('.popup-accept').html('');
+					jQuery($this).attr('data-follow','no');
+					jQuery('.follow-title').html(res['responce']['msg']);
+				}
+			 },  
+			 error: function(response, d, a){
 				jQuery('body .bodyoverlay').remove();
 				jQuery('body .popupbox').remove();
-			}); 
-		 } 
-	   });
-	});
-
-
-	jQuery('#accept_'+event_id).click(function(){
-		jQuery.ajax({ 
-		 type: 'POST',  
-		 url: url,  
-		 //contentType: contentType,  
-		 dataType: 'json',  
-		 data: {user_id:uid,event_id:event_id,following:1},  
-		 crossDomain: true,  
-		 beforeSend: function() {
-			
-								
-		 },		
-		 complete: function() {
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
 				
-		 },
-		 success: function(res) {  
-			var html='';
-		   if(res['responce'])
-		   {
-		   		jQuery('.popup-accept').html('');
-				jQuery($this).attr('data-follow','yes');
-				jQuery('.follow-title').html(res['responce']['msg']);
-			}
-		 },  
-		 error: function(response, d, a){
-			jQuery('body .bodyoverlay').remove();
-			jQuery('body .popupbox').remove();
-			var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
-			jQuery('body').append(html);
-			
-			jQuery('.okbox').click(function(){
-				jQuery('body .bodyoverlay').remove();
-				jQuery('body .popupbox').remove();
-			}); 
-		 } 
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+		   });
 		});
-	});
+	
+	
+		jQuery('#accept_'+event_id).click(function(){
+			jQuery.ajax({ 
+			 type: 'POST',  
+			 url: url,  
+			 //contentType: contentType,  
+			 dataType: 'json',  
+			 data: {user_id:uid,event_id:event_id,following:1},  
+			 crossDomain: true,  
+			 beforeSend: function() {
+				
+									
+			 },		
+			 complete: function() {
+					
+			 },
+			 success: function(res) {  
+				var html='';
+			   if(res['responce'])
+			   {
+					jQuery('.popup-accept').html('');
+					jQuery($this).attr('data-follow','yes');
+					jQuery('.follow-title').html(res['responce']['msg']);
+				}
+			 },  
+			 error: function(response, d, a){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+				var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+				jQuery('body').append(html);
+				
+				jQuery('.okbox').click(function(){
+					jQuery('body .bodyoverlay').remove();
+					jQuery('body .popupbox').remove();
+				}); 
+			 } 
+			});
+		});
 
-}
+	}
 	function showlocations()
 	{
 		var uid=localStorage.getItem('User_ID');

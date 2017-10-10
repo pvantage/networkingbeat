@@ -134,7 +134,32 @@
 		<li class="backbtn" style="display:none;"><a href="javascript:;"><img src="images/back.png" class="img-fluid" alt="Responsive image"></a></li>
     </ul>
 </div>
+<div class="popup-model">
+<div class="modal fade" id="exampleModalLong3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog main-part" role="document">
+    <div class="modal-content inner-part">
+    
+      <div class="modal-body">
+      <button type="button" class="close clse-set clse" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       <div class="main-point">
+         <h4 class="main-title">Following</h4>
+         <p class="follow-title"></p>
+         <ul class="popup-accept">
+         
 
+         </ul>
+       </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
 <!-- footer-close -->
 
     <!-- Optional JavaScript -->
@@ -149,6 +174,100 @@
 	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 	<script type="text/javascript">
+	function followunfollow(event_id){
+	var $this=jQuery('#follow_'+event_id);
+	var follow=jQuery($this).attr('data-follow');
+	var title=jQuery($this).attr('data-title');
+	var uid=localStorage.getItem('User_ID');
+		var url=siteurl+'/api/events';
+	if(follow=='yes'){
+		jQuery('.follow-title').html('You are now unfollowing '+title+'.');
+		jQuery('.main-title').html('Unfollowing');
+		jQuery('.popup-accept').html(' <li class="first-accept"><a href="javascript:;" class="accept-follow" id="unaccept_'+event_id+'">Undo</a></li>');
+	}
+	if(follow=='no'){
+		jQuery('.follow-title').html('You are now following '+title+'.');
+		jQuery('.main-title').html('Following');
+		jQuery('.popup-accept').html(' <li class="first-accept"><a href="javascript:;" class="accept-follow" id="accept_'+event_id+'">Accept</a></li>');
+	}
+	jQuery('#unaccept_'+event_id).click(function(){
+		jQuery.ajax({ 
+		 type: 'POST',  
+		 url: url,  
+		 //contentType: contentType,  
+		 dataType: 'json',  
+		 data: {user_id:uid,event_id:event_id,unfollowing:1},  
+		 crossDomain: true,  
+		 beforeSend: function() {
+			
+								
+		 },		
+		 complete: function() {
+				
+		 },
+		 success: function(res) {  
+			var html='';
+		   if(res['responce'])
+		   {
+		   		jQuery('.popup-accept').html('');
+				jQuery($this).attr('data-follow','no');
+				jQuery('.follow-title').html(res['responce']['msg']);
+			}
+		 },  
+		 error: function(response, d, a){
+			jQuery('body .bodyoverlay').remove();
+			jQuery('body .popupbox').remove();
+			var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+			jQuery('body').append(html);
+			
+			jQuery('.okbox').click(function(){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+			}); 
+		 } 
+	   });
+	});
+
+
+	jQuery('#accept_'+event_id).click(function(){
+		jQuery.ajax({ 
+		 type: 'POST',  
+		 url: url,  
+		 //contentType: contentType,  
+		 dataType: 'json',  
+		 data: {user_id:uid,event_id:event_id,following:1},  
+		 crossDomain: true,  
+		 beforeSend: function() {
+			
+								
+		 },		
+		 complete: function() {
+				
+		 },
+		 success: function(res) {  
+			var html='';
+		   if(res['responce'])
+		   {
+		   		jQuery('.popup-accept').html('');
+				jQuery($this).attr('data-follow','yes');
+				jQuery('.follow-title').html(res['responce']['msg']);
+			}
+		 },  
+		 error: function(response, d, a){
+			jQuery('body .bodyoverlay').remove();
+			jQuery('body .popupbox').remove();
+			var html='<div class="bodyoverlay"></div><div class="popupbox errorbox"><div class="popupimg"><img src="images/error.png" /></div><h1 class="success">ERROR</h1><h1>Server Error.</h1><button class="okbox">OK</button></div>';
+			jQuery('body').append(html);
+			
+			jQuery('.okbox').click(function(){
+				jQuery('body .bodyoverlay').remove();
+				jQuery('body .popupbox').remove();
+			}); 
+		 } 
+		});
+	});
+
+}
 	function showlocations()
 	{
 		var uid=localStorage.getItem('User_ID');
@@ -195,12 +314,6 @@
 	showlocations();
 	function showevents()
 	{
-		jQuery( document ).on( "mobileinit", function() {
-			jQuery.mobile.allowCrossDomainPages = true;
-		});
-		var contentType ="application/x-www-form-urlencoded; charset=utf-8";
-		if(window.XDomainRequest){contentType = "text/plain";}
-		jQuery.support.cors = true;
 		var order_by=jQuery('input[name="order_by"]:checked').val();
 		var setaddress=jQuery('#setaddress').val();
 		var presetaddress=localStorage.getItem('Event_setaddress');
@@ -224,7 +337,7 @@
 			jQuery.ajax({ 
 			 type: 'POST',  
 			 url: url,  
-			 contentType: contentType,  
+			 //contentType: contentType,  
 			 dataType: 'json',  
 			 data: {order_by:order_by,srchtxt:srchtxt,page:pageid,user_id:uid, latitude:latitude, longitude:longitude,setaddress:setaddress},  
 			 crossDomain: true,  
@@ -270,7 +383,16 @@
              			if(res['responce'][index]['rate']!='' && res['responce'][index]['rate']=='Yes'){
                               html+='<li class="heart-like"><a href="javascript:;"><i class="fa fa-heart-o  fa-lg" aria-hidden="true"></i></a> </li>';
 						}
-                       html+='<li class="eye-show"><a href="event-detail.html?uid='+uid+'&event_id='+res['responce'][index]['id']+'"><i class="fa fa-eye  fa-lg" aria-hidden="true"></i></a></li></ul></div></div>';
+						if(res['responce'][index]['follow']!=''){
+							if(res['responce'][index]['follow']=='Yes'){
+								 html+='<li class="eye-show"><a href="javascript:;" id="follow_'+res['responce'][index]['id']+'" onclick="return followunfollow('+res['responce'][index]['id']+')" data-follow="yes" data-title="'+res['responce'][index]['name']+'" data-toggle="modal" data-target="#exampleModalLong3"><i class="fa fa-heart" aria-hidden="true"></i></a></li>';
+							}
+							else
+							{
+								html+='<li class="eye-show"><a href="javascript:;" id="follow_'+res['responce'][index]['id']+'" onclick="return followunfollow('+res['responce'][index]['id']+')" data-follow="no" data-title="'+res['responce'][index]['name']+'" data-toggle="modal" data-target="#exampleModalLong3"><i class="fa fa-heart" aria-hidden="true"></i></a></li>';
+							}
+						}
+                       html+='</ul></div></div>';
                   		html+='<div class="second-last-event-set"><p><span>'+res['responce'][index]['startdate']+'</span></p></div></div></div></div>';
 						
 				   });
@@ -403,6 +525,7 @@
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 	
 }
+
 	</script>
   </body>
 </html>

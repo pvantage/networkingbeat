@@ -21,7 +21,7 @@
     margin-top: 18%;
 }
 .next-view .eye-show a i {
-    font-size: 25px !important;
+    font-size: 22px !important;
 }
 .event-detail-two{
 	background-color: rgba(89, 72, 82, 0.9)  !important; 
@@ -309,7 +309,7 @@ width: 100%;
 	z-index: 99999;*/
 	display: inline-block;
 	width: 23%;
-	padding: 15px 0px;
+	padding:2px 0px;
 
 }
 body .toogle-footer{
@@ -1110,7 +1110,7 @@ margin: 0;
 line-height: normal;
 		text-align: center;
 		background-color: #fff !important;
-		border: 2px solid #ff5b49;
+		border: 3px solid #ff5b49;
 		padding:0px;
 		border-radius: 50%;
 		margin-right: 5px;

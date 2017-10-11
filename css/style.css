@@ -21,7 +21,8 @@
     float: left;
 }
 .next-view .fa-lg {
-    font-size: 1.33333333em !important;
+    font-size: 22px !important;
+	    line-height: normal;
 
 }
 .filtermodelbox {

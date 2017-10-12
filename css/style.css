@@ -275,6 +275,7 @@ color: #000;
 }
 .detail-text{
 	padding: 5px 10px;
+	overflow-wrap:break-word;
 }
 .forget-pass {
 	text-align: center;

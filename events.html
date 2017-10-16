@@ -292,15 +292,13 @@
  			if(typeof lati!='undefined' && lati!=null && lati!=''){
 				var html='<option value="currentlocation">Use my current location</option>';
 			}
+			jQuery('#setaddress').html(html);
 		   if(res['responce'])
 		   {
-				jQuery(res['responce']).each(function(index){
-					html+='<option value="'+res['responce'][index]['setaddress']+'">'+res['responce'][index]['showaddress']+'</option>';
-					
-			   });
+				jQuery('#setaddress').append(res['responce']['html']);
 			}
 			
-			jQuery('#setaddress').html(html);
+			//jQuery('#setaddress').html(html);
 			var setaddress=localStorage.getItem('Event_setaddress');
  			if(typeof setaddress!='undefined' && setaddress!=null && setaddress!=''){
 				jQuery('#setaddress').val(setaddress);

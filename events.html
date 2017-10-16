@@ -212,6 +212,7 @@
 					jQuery('.popup-accept').html('');
 					jQuery($this).attr('data-follow','no');
 					jQuery('.follow-title').html(res['responce']['msg']);
+					jQuery($this).html('<i class="fa fa-heart" aria-hidden="true"></i>');
 				}
 			 },  
 			 error: function(response, d, a){
@@ -251,6 +252,7 @@
 					jQuery('.popup-accept').html('');
 					jQuery($this).attr('data-follow','yes');
 					jQuery('.follow-title').html(res['responce']['msg']);
+					jQuery($this).html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
 				}
 			 },  
 			 error: function(response, d, a){

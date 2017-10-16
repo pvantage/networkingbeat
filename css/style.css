@@ -837,6 +837,7 @@ body .locatio-map{
 .eye-show a{
 	float: left;
     color: #8ef0ff;
+	outline:none;
 }
 .eye-show a i{
 	font-size: 25px;
